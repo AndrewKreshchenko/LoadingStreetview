@@ -1,0 +1,146 @@
+/* Responsive */
+.row {
+    margin: 0 auto;
+}
+.row:last-child {
+    margin-bottom: 0;
+}
+[class*="col-"] {
+    padding: 10px;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media screen and (max-width: 950px) {
+    .cssmenu {
+        width: 75%;
+    }
+    #prompts {
+        width: 90%;
+    }
+    .warning {
+        margin-top: 20px
+    }
+}
+@media all and (min-width: 768px) {
+    .col-1 {
+        width: 100%;
+    }
+    .col-2-3 {
+        width: 66.66%;
+        float: left
+    }
+    .col-2 {
+        width: 50%;
+        float: left
+    }
+    .col-3 {
+        width: 33.33%;
+        float: left
+    }
+    #page_footer {
+        padding: 0 40px;
+    }
+}
+@media all and (max-width: 767px) {
+    .col-m-1 {
+        width: 100%;
+    }
+    .col-m-2 {
+        width: 50%;
+        float: left
+    }
+    .col-m-3 {
+        width: 33.33%;
+        float: left
+    }
+    /* Logo icon */
+    .logo {
+        position: fixed;
+        top: -3px;
+        left: 20px;
+        z-index: 5;
+    }
+    .logo img {
+        width: 115px
+    }
+    .logo h1, #cssmenu #menu-btn {
+        font-size: 24px;
+        line-height: 0.6;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, .8);
+    }
+    h1.amp {
+        top: 15px;
+        left: 60px;
+        font-size: 28px;
+    }
+    #svgmg {
+        -webkit-transform: scale(0.85);
+    }
+    #svgloc {
+        left: 55px;
+        width: 25px;
+        height: auto
+    }
+    @keyframes anim_mg {
+        from {-webkit-transform: translateX(-25px); -webkit-transform: scale(.6);}
+        to {-webkit-transform: translateX(0); -webkit-transform: scale(0.85);}
+    }
+    /*{
+        position: fixed;
+        top: 0;
+        left: -35px;
+    }*/
+    #svgmg {
+        top: -5px;
+    }
+    #cssmenu #menu-btn {
+        font-size: 18px;
+    }
+    .container-inp {
+        width: 100%;
+    }
+    .nytimes-container {
+        border: none;
+    }
+    ol {
+        -webkit-padding-start: 15px;
+    }
+    .art_small img {
+        width: 75%;
+    }
+}
+@media all and (max-width: 550px) {
+    .col-ms-1 {
+        width: 100%;
+    }
+    .col-ms-2 {
+        width: 50%;
+        float: left;
+    }
+    .greeting {
+        width: 75%;
+        margin: 0 auto
+    }
+    #language {
+        top: 10px
+    }
+    #cssmenu > ul > li > a {
+        padding: 12px 16px;
+        font-size: 12px
+    }
+    #language img {
+        margin: 3px;
+    }
+    #form-container {
+        width: 100%;
+    }
+    .social_c {
+        width: 70%;
+    }
+    .art_small img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,411 @@
+/* Logo icon */
+.logo {
+    position: fixed;
+    top: -3px;
+    left: 20px;
+    z-index: 5;
+}
+.logo h1, #cssmenu #menu-btn {
+    font-size: 26px;
+    line-height: 0.7;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .8);
+}
+.logo img {
+    position: absolute;
+    left: -20px;
+    width: 130px;
+    transform-style: preserve-3d;
+    z-index: -2;
+}
+h1.amp, #svgloc {
+    position: absolute;
+}
+h1.amp {
+    top: 10px;
+    left: 65px;
+    font-size: 36px;
+    /*transform-origin: 50% 100%; transform-origin: 100% 12px;*/
+}
+h1.amp.amp-anim {
+    -webkit-animation: anim_amp 2.5s;
+}
+#svgmg {
+    position: fixed;
+    top: 0;
+    left: -35px;
+}
+#svgmg.svg-mg {
+    -webkit-animation: anim_mg 1s ease-out;
+}
+#svgloc {
+    top: 22px;
+    left: 60px;
+    opacity: 0;
+    /*transform-origin: 100% 16px; /* half of height */
+}
+#svgloc.svg-loc {
+    -webkit-animation: anim_loc 2s;
+}
+.clipped {
+    position: absolute;
+    /*-webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);*/
+    /*-webkit-animation: anim_img 1s;*/
+}
+@keyframes anim_amp {
+    0% {opacity: 0}
+    80% {-webkit-transform: rotateY(90deg);}/*left: 55px; */
+    100% {-webkit-transform: rotateY(0);}
+}
+@keyframes anim_mg {
+    from {-webkit-transform: translateX(-25px); -webkit-transform: scale(.8)}
+    to {-webkit-transform: translateX(0); -webkit-transform: scale(1)}
+}
+@keyframes anim_loc {
+    0% {opacity: 1; -webkit-transform: scale(0.65);}
+    50% {opacity: 1; -webkit-transform: rotateY(0); -webkit-transform: scale(1);}
+    50%, 75% {opacity: 1; -webkit-transform: rotateY(0);}
+    100% {opacity: 1; -webkit-transform: rotateY(-90deg);}
+}
+
+/* Languages */
+#language {
+    position: fixed;
+    top: 5px;
+    right: 0;
+}
+#language img {
+    margin: 5px; 
+    width: 50px;
+    box-shadow: 0 0 16px #000;
+}
+#language img, .cssmenu ul li a, #cssmenu #menu-btn {
+    border-radius: 7px
+}
+
+/* Menus */
+#cssmenu #menu-btn {
+    display: none;
+    cursor: pointer
+}
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#cssmenu #menu-btn {
+    display: none;
+}
+#cssmenu {
+    margin-left: 130px;
+    position: fixed;
+    left: 0;
+    width: auto;
+    font-family: 'Open Sans', sans-serif;
+    /*background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+    background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);*/
+}
+#cssmenu > ul {
+    /*box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);*/
+}
+#cssmenu.align-right > ul > li {
+    float: right;
+}
+#cssmenu > ul > li {
+    float: left;
+    display: inline-block;
+}
+#cssmenu.align-center > ul {
+    float: none;
+    text-align: center;
+}
+#cssmenu.align-center > ul > li {
+    float: none;
+}
+#cssmenu.align-center ul ul {
+    text-align: left;
+}
+#cssmenu ul li a {
+    -webkit-box-shadow: 1px 1px 5px #222 inset;
+    border-radius: 7px;
+    background: #006666;
+    -webkit-transition: background-color .5s
+}
+#cssmenu > ul > li > a {
+    padding: 12px;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    color: #d3eced;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a {
+    color: #fff;
+    background: #004242
+}
+#cssmenu > ul > li.has-sub > a {
+    padding-right: 45px;
+}
+#cssmenu > ul > li.has-sub > a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: #d3eced;
+    right: 17px;
+    top: 16px;
+}
+#cssmenu > ul > li.has-sub.active > a::after,
+#cssmenu > ul > li.has-sub:hover > a {
+    border-top-color: #fff;
+}
+#cssmenu ul ul {
+    position: absolute;
+    left: -9999px;
+    top: 60px;
+    padding-top: 6px;
+    opacity: 0;
+    -webkit-transition: top 0.2s ease, opacity 0.2s ease-in;
+    -moz-transition: top 0.2s ease, opacity 0.2s ease-in;
+    -ms-transition: top 0.2s ease, opacity 0.2s ease-in;
+    -o-transition: top 0.2s ease, opacity 0.2s ease-in;
+    transition: top 0.2s ease, opacity 0.2s ease-in;
+}
+#cssmenu.align-right ul ul {
+    text-align: right;
+}
+#cssmenu > ul > li > ul::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+    top: -4px;
+    left: 20px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+    left: auto;
+    right: 20px;
+}
+#cssmenu ul ul ul::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: #fff;
+    top: 11px;
+    left: -4px;
+    opacity: 0
+}
+#cssmenu.align-right ul ul ul::after {
+    border-right-color: transparent;
+    border-left-color: #fff;
+    left: auto;
+    right: -4px;
+}
+#cssmenu > ul > li > ul {
+    top: 120px;
+}
+#cssmenu > ul > li:hover > ul {
+    top: 38px;
+    left: 0;
+    opacity: 1;
+}
+#cssmenu.align-right > ul > li:hover > ul {
+    left: auto;
+    right: 0;
+}
+#cssmenu ul ul ul {
+    padding-top: 0;
+    padding-left: 6px;
+}
+#cssmenu.align-right ul ul ul {
+    padding-right: 6px;
+}
+#cssmenu ul ul > li:hover > ul {
+    left: 180px;
+    top: 0;
+    opacity: 1;
+}
+#cssmenu.align-right ul ul > li:hover > ul {
+    left: auto;
+    right: 100%;
+    opacity: 1;
+}
+#cssmenu ul ul li a {
+    text-decoration: none;
+    font-weight: 400;
+    padding: 11px 25px;
+    width: 180px;
+    color: #777;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.active > a {
+    color: #222;
+}
+/*#cssmenu ul ul li:first-child > a {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#cssmenu ul ul li:last-child > a {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}*/
+#cssmenu > ul > li > ul::after {
+    position: absolute;
+    display: block;
+}
+#cssmenu ul ul li.has-sub > a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-left-color: #777;
+    right: 17px;
+    top: 14px;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+    border-left-color: transparent;
+    border-right-color: #777;
+    right: auto;
+    left: 17px;
+}
+#cssmenu ul ul li.has-sub.active > a::after,
+#cssmenu ul ul li.has-sub:hover > a::after {
+    border-left-color: #333;
+}
+#cssmenu.align-right ul ul li.has-sub.active > a::after,
+#cssmenu.align-right ul ul li.has-sub:hover > a::after {
+    border-right-color: #333;
+    border-left-color: transparent;
+}
+@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+    #cssmenu {/*ul > li:not(:first-child) */
+        margin: 75px 0 0 0;
+    }
+    #cssmenu > ul {
+        display: none;
+        z-index: 20;
+    }
+    #cssmenu > ul.open {
+        display: block;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    #cssmenu.align-right > ul {
+        float: none;
+    }
+    #cssmenu.align-center > ul {
+        text-align: left;
+    }
+    #cssmenu > ul > li,
+    #cssmenu.align-right > ul > li {
+        float: none;
+        display: block;
+    }
+    #cssmenu > ul > li > a {
+        padding: 18px 25px;
+        border-right: 0;
+    }
+    #cssmenu > ul > li:hover > a,
+    #cssmenu > ul > li.active > a {
+        background: #004242
+    }
+    #cssmenu #menu-btn {
+        padding: 5px;
+        width: 40px;
+        display: block;
+        color: #d3eced;
+        background-color: #004242;
+    }
+    #cssmenu #menu-btn div {
+        width: 30px;
+        height: 4px;
+        margin: 4px 0;
+        background-color: #d3eced;
+        /*-webkit-transition: background-color .5s;*/
+    }
+    #cssmenu #menu-btn div:nth-child(2) {
+        height: 5px
+    }
+    /*#cssmenu #menu-btn div:hover, #cssmenu #menu-btn div:active {
+        background-color: #f0e68c;
+    }*/
+    #cssmenu ul ul,
+    #cssmenu ul li:hover > ul,
+    #cssmenu > ul > li > ul,
+    #cssmenu ul ul ul,
+    #cssmenu ul ul li:hover > ul,
+    #cssmenu.align-right ul ul,
+    #cssmenu.align-right ul li:hover > ul,
+    #cssmenu.align-right > ul > li > ul,
+    #cssmenu.align-right ul ul ul,
+    #cssmenu.align-right ul ul li:hover > ul {
+        left: 0;
+        right: auto;
+        top: auto;
+        opacity: 1;
+        width: 100%;
+        padding: 0;
+        position: relative;
+        text-align: left;
+    }
+    #cssmenu ul ul li {
+        width: 100%;
+    }
+    #cssmenu ul ul li a {
+        width: 100%;
+        margin-left: 20px;
+        box-shadow: none;
+    }
+    #cssmenu ul ul ul li a {
+        margin-left: 40px;
+    }
+    /*#cssmenu #menu-btn:active {
+        -webkit-animation: rotatem 1s ease;
+    }*/
+    #cssmenu > ul > li.has-sub > a::after,
+    #cssmenu ul ul li.has-sub > a::after {
+        display: none;
+    }
+    @-webkit-keyframes rotatem {
+        from {transform: rotate(0);}
+        to {transform: rotate(360deg);}
+    }
+    @keyframes rotatem {
+        from {transform: rotate(0);}
+        to {transform: rotate(360deg);}
+    }
+}
