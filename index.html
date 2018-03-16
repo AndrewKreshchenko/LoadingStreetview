@@ -2,25 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Moving Companion</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0">
+    <title>Plan & Find | Fast geosearch online</title>
+    <link rel="icon" type="image/png" href="img/fic.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext" rel="stylesheet"><!--font-family: 'Open Sans', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
 </head>
 <body>
-    <form id="form-container" class="form-container">
-        <label for="street">Street: </label><input type="text" id="street" value="">
-        <label for="city">City: </label><input type="text" id="city" value="">
-        <button id="submit-btn">Submit</button>
-    </form>
-    <hr>
-    <h2 id="greeting" class="greeting">Enter the adress!</h2>
-    <div class="wikipedia-container">
-        <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
-        <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
+    <div class="logo"><!--<li><img style="margin: 0 15px;" src="../img/fic.png"></li>-->
+        <img src="img/logo_plf_with_bg.png">
+        <h1>Plan</h1>
+        <h1>Find</h1>
+        <h1 class="amp amp-anim">&amp;</h1>
+        <svg id="svgloc" class="svg-loc" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="30px" height="55px" viewBox="0 0 30 55" preserveAspectRatio="xMidYMid meet" onload="">
+            <defs><path style="stroke:black;stroke-width:1px;fill:khaki;"/></defs>
+            <rect x="0" y="0" width="1450" height="700" style="fill: none; stroke: none;"/>
+            <path d="M2.4928,13.574498c0.1357,-7.792853,6.2195,-12.548462,12.46418,-12.55c8.049837,0.170238,12.60631,5.29521,12.6361,12.3782c0.02979,10.86525,-7.889,22.668,-11.6046,22.951c-3.37177,0.0254,-13.2016,-11.032,-13.4957,-22.779Z"
+                style="stroke:black;fill:#fff;stroke-width:0;" id="e15_area3" transform="matrix(1.07 0 0 1.07 -0.974 -0.269)"/>
+                <circle cx="15.1289" cy="14.0043" style="fill:#004c4c;stroke:0px;stroke-width:0px;" r="6.3"/>
+        </svg>
+        <svg id="svgmg" class="svg-mg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="80px" viewBox="0 0 170 80" preserveAspectRatio="xMidYMid meet" onload="" >
+            <defs>
+                <polygon style="fill:#f0e68c;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px;"/>
+                <linearGradient gradientUnits="objectBoundingBox" id="lgrd2-b" spreadMethod="pad" x1="0" x2="100%" y1="0" y2="0" gradientTransform=""><stop offset="0%" stop-color="#594700"/><stop offset="100%" stop-color="#f0e68c"/></linearGradient>
+            </defs>
+            <path d="M37.9048,-3.8124l-0.9278,7.999855h7.58687l-1.33945,-8Z" style="fill:url(#lgrd2-b); stroke:black; vector-effect:non-scaling-stroke;stroke-width:0px;" id="e7_shape" transform="matrix(0.001 -1.6856 8.06798 0.0023 70.977 110.184)"/>
+                <circle cx="156" cy="44" style="fill:rgba(0, 76, 76, 0.2);stroke:rgba(0, 76, 76, 0.5);stroke-width:5px;" r="29.8803" transform="matrix(0.8774 0 0 0.8774 -4.1077 4.883)"/>
+                <rect x="0" y="0" width="1450" height="700" style="stroke: none; fill:none;"/><!--filter: url(#blurFilter3);-->
+            <circle cx="152" cy="37" style="fill:rgba(0, 76, 76, 0.2);stroke:#fff;stroke-width:3px;" r="29.9" transform="matrix(0.895341 0 0 0.895341 -4.70271 7.41817)"/>
+        </svg>
     </div>
-    <div class="nytimes-container">
-        <h3 id="nytimes-header">New York Times articles<span>articles</span></h3>
-        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+    <div id='cssmenu'>
+        <div id="menu-btn">
+            <div></div><div></div><div></div>
+        </div>
+        <ul>
+            <li><a href='#'><span>Home</span></a></li>
+            <li><a href='find-en.html'><span>Find a location</span></a></li>
+            <!--<li><a href='learn-en.html'><span>Learn about a place</span></a></li>-->
+            <li class='has-sub'><a href='#'><span>Route planner</span></a><!--active-->
+                <ul>
+                    <li><a href='route/route_how_to-en.html'><span>How to plan a route</span></a></li>
+                    <li class='has-sub'><a href='#'><span>Route planner Apps</span></a>
+                        <ul>
+                        <li><a href='route/route_online_app-en.html'><span>Online route planner</span></a></li>
+                        <li class='last'><a href='route/route_device_app-en.html'><span>Route planner on device</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class='last'><a href='contacts-en.html'><span>Contacts</span></a></li>
+        </ul>
     </div>
+    <div id="language">
+        <a href="index-ua.html" title="Українська"><img src="img/ua.png"></a>
+    </div>
+    <main>
+        <div class="greeting">
+            <h1>Welcome!</h1>
+        </div>
+        <div class="main_txt">
+            <p><i>Plan &amp; Find</i> service will simplify planning Your trip or to find any location quickly.</p>
+            <p>The service can help You to get the look of the place easy or information about it (menu item "<a href="find-en.html">Find a location</a>").
+            You can also get useful information about programs (apps) for planning routes and trips.</p>
+        </div>
+    </main>
+    <footer>
+        <p style="font-size: 12px !important">2018 Copyright. All Rights Reserved.</p>
+    </footer>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/script.js"></script>
 </body>
