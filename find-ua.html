@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0">
+    <title>Plan &amp; Find | Швидкий геопошук онлайн</title>
+    <link rel="icon" type="image/png" href="img/fic.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/for_user.css">
+    <script type="text/javascript" async="" src="js/libs/ga.js"></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="img/logo_plf_with_bg.png">
+        <h1>Plan</h1>
+        <h1>Find</h1>
+        <h1 class="amp">&amp;</h1>
+        <svg id="svgloc" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="30px" height="55px" viewBox="0 0 30 55" preserveAspectRatio="xMidYMid meet" onload="">
+            <defs><path style="stroke:black;stroke-width:1px;fill:khaki;"/></defs>
+            <rect x="0" y="0" width="1450" height="700" style="fill: none; stroke: none;"/>
+            <path d="M2.4928,13.574498c0.1357,-7.792853,6.2195,-12.548462,12.46418,-12.55c8.049837,0.170238,12.60631,5.29521,12.6361,12.3782c0.02979,10.86525,-7.889,22.668,-11.6046,22.951c-3.37177,0.0254,-13.2016,-11.032,-13.4957,-22.779Z"
+                style="stroke:black;fill:#fff;stroke-width:0;" id="e15_area3" transform="matrix(1.07 0 0 1.07 -0.974 -0.269)"/>
+                <circle cx="15.1289" cy="14.0043" style="fill:#004c4c;stroke:0px;stroke-width:0px;" r="6.3"/>
+        </svg>
+        <svg id="svgmg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="80px" viewBox="0 0 170 80" preserveAspectRatio="xMidYMid meet" onload="" >
+            <defs>
+                <polygon style="fill:#f0e68c;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px;"/>
+                <linearGradient gradientUnits="objectBoundingBox" id="lgrd2-b" spreadMethod="pad" x1="0" x2="100%" y1="0" y2="0" gradientTransform=""><stop offset="0%" stop-color="#594700"/><stop offset="100%" stop-color="#f0e68c"/></linearGradient>
+            </defs>
+            <path d="M37.9048,-3.8124l-0.9278,7.999855h7.58687l-1.33945,-8Z" style="fill:url(#lgrd2-b); stroke:black; vector-effect:non-scaling-stroke;stroke-width:0px;" id="e7_shape" transform="matrix(0.001 -1.6856 8.06798 0.0023 70.977 110.184)"/>
+                <circle cx="156" cy="44" style="fill:rgba(0, 76, 76, 0.2);stroke:rgba(0, 76, 76, 0.5);stroke-width:5px;" r="29.8803" transform="matrix(0.8774 0 0 0.8774 -4.1077 4.883)"/>
+                <rect x="0" y="0" width="1450" height="700" style="stroke: none; fill:none;"/><!--filter: url(#blurFilter3);-->
+            <circle cx="152" cy="37" style="fill:rgba(0, 76, 76, 0.2);stroke:#fff;stroke-width:3px;" r="29.9" transform="matrix(0.895341 0 0 0.895341 -4.70271 7.41817)"/>
+        </svg>
+    </div>
+    <div id='cssmenu'>
+        <div id="menu-btn">
+            <div></div><div></div><div></div>
+        </div>
+        <ul>
+            <li><a href='index-ua.html'><span>Домашня сторінка</span></a></li>
+            <li><a href='#'><span>Знайти локацію</span></a></li>
+            <li class='has-sub'><a href='#'><span>Спланувати маршрут</span></a>
+                <ul>
+                    <li><a href='route/route_how_to-ua.html'><span>Як спланувати похід</span></a></li>
+                    <li class='has-sub'><a href='#'><span>Застосунки для планування маршрутів</span></a>
+                        <ul>
+                        <li><a href='route/route_online_app-ua.html'><span>Онлайн-планувальники</span></a></li>
+                        <li class='last'><a href='route/route_device_app-ua.html'><span>Планувальники для гаджетів</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class='last'><a href='contacts-ua.html'><span>Контакти</span></a></li>
+        </ul>
+    </div>
+    <div id="language">
+        <a href="find-en.html" title="English"><img src="img/en.png"></a>
+    </div>
+    <main>
+        <div class="greeting">
+            <h1 id="greeting">Введіть адресу місцевості!</h1><!--Введіть адресу локації!-->
+        </div>
+        <form id="form-container" class="form-container row clearfix">
+            <div class="container-inp col-2 col-m-2 col-ms-1">
+                    <label for="street">Вулиця: </label>
+                <div class="inp-text">
+                    <input type="text" class="question" id="street" value=""><label for="nme"><span class="focus-border"></span></label>
+                </div>
+            </div>
+            <div class="container-inp col-2 col-m-2 col-ms-1">
+                <!--<div class="inp-block">
+                    <div class="labels">-->
+                <label for="city">Місто: </label>
+                <div class="inp-text">
+                    <input type="text" class="question" id="city" value=""><label for="nme"><span class="focus-border"></span></label>
+                </div>
+            </div>
+            <div class="col-2 col-m-2 col-ms-1">
+                <label for="street">Бажаєте отримати статті про локацію?</label>
+            </div>
+            <div class="switch_box col-2 col-m-2 col-ms-1">
+                <div class="input_wrapper">
+                    <input type="checkbox" id="switch">
+                    <svg class="is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+                        <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+                    </svg>
+                    <svg class="is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+                        <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="btn-subm">
+                <button id="submit-btn">Підтвердити</button>
+                <div class="refs">
+                    <p><a href="javascript:void(0);" onclick="onPrompts()">Поради і приклади</a></p><!--Поради і приклади--><!--для пошуку-->
+                    <p><a target="_blank" href="report-ua.html">Повідомити про проблему</a></p><!--Повідомити про проблему-->
+                </div>
+            </div>
+            <div id="bti" class="btn-subm" style="display: none; border: 1px solid transparent; border-top-color: #fff;">
+                <button>Показати зображення повністю</button>
+            </div>
+        </form>
+        <div id="fullimg" style="display: none">
+            <div id="close-im">
+                <img draggable="no" src="img/close.png">
+                <a href="#" download><img src="img/dl.png"></a>
+            </div>
+        </div>
+        <div id="alert-b"><p>У цілях безпеки не дозволяється завантажувати більше 25 фото за день.</p></div>
+        <!--<div class="subm col-2 col-m-2 col-ms-1">
+        </div>-->
+        <div class="row clearfix articles" style="display: none">
+            <div class="wikipedia-container col-2 col-m-1 col-ms-1">
+                <h3 id="wikipedia-header">Посилання на Вікіпедію</h3><!--Посилання з Вікіпедії-->
+                <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul><!--Введіть адресу в полях, щоб отримати відповідні посилання на джерела Вікіпедії.-->
+            </div>
+            <div class="nytimes-container col-2 col-m-1 col-ms-1">
+                <h3 id="nytimes-header"><span>Статті</span> (New York Times)</h3><!--Статті New York Times-->
+                <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
+            </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
+        </div>
+        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 300px">
+            <div id="close-p"><img draggable="no" src="img/close.png"></div>
+            <h3>Нижче подані приклади можуть допомогти вам ввести адресу правильно.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
+            <ol>
+                <li>
+                    <p>Не обов'язково вводити назву країни чи позначати адміністративно-територіальну одиниицю у скороченому чи повному вигляді ("місто", "село", "округ") або "штат" (якщо США) щоб отримати фотографію Google місцевості відповідно до введених даних. 
+                    Але це може бути необхідним уточненням якщо Вам не вдалося отримати правильний результат.</p>
+                    <p>Вулиця: <span class="example">[Назва вулці], [номер об'єкту]</span> Місто:<span class="example"> [Назва міста]</span></p><!--<p class="example"><i>Вулиця</i>[Назва вулиці], [номер об'єкту]; <i>Місто</i>[Назва міста]</p>-->
+                    <p>Вулиця: <span class="example">[номер об'єкту], [Назва вулці]</span> Місто:<span class="example"> [Назва міста]</span></p>
+                    <p>Street: <span class="example">Галицька, 7</span> City: <span class="example">Червоноград</p><!--округ-->
+                    <p>Street: <span class="example">73, Franklin Avenue</span> City: <span class="example">Brooklin</p>
+                </li>
+                <li>
+                    <p>Якщо Ви ввели адресу і фото здалося Вам дивне (показані об’єкти точно не можуть належати місцевості), перевірте чи Ви правильно ввели адресу.</p>
+                </li>
+                <li>    
+                    <p>Якщо Вам потрібно знайти фото місцевості, яка належить до не англомовної країни, англйськими літерами, краще користуватися правилами транслітерації.</p>
+                    <p>Ви можете скористатися транслітерацією онлайн <a href="http://ua.translit.cc/">тут</a>.</p>
+                    <p>Назви вулиць чи міст, які належать не англомовним країнам, можна також вводити англійськими літерами, користуючись правилами транслітерації.</p>
+                    <p>Вулиця: <span class="example">25 Konstantine Gamsakhurdia St </span> Місто: <span class="example">ბათუმი</p>    
+                </li>
+                <li>
+                    <p>Трапляються випадки, коли в полі "Вулиця" потрібно вводити номер об'єкту (будівлі) у формі діапазону [номер-номер], щоб отримати фотографію об'єкту.</p>
+                    <p>Вулиця: <span class="example">Peter-Rosegger-Straße, 42-44 </span> Місто: <span class="example">Graz</p>
+                </li>
+                <li>
+                    <p>Якщо об'єкт є досить відомим (монумент архітктури, музей, стадіон, парк тощо), Ви можете ввести адресу наступним способом. На жаль, частину відомих місць поки що неможливо побачити.</p>
+                    <p>Вулиця: <span class="example">Castel dell'Ovo</span> Місто: <span class="example">Napoli</p>
+                    <p>Вулиця: <span class="example">Goblin Valley State Park</span> Місто: <span class="example">Utah</p>
+                    <p>Вулиця: <span class="example">Пляж Ланжерон</span> Місто: <span class="example">Одеса</p>
+                </li>
+                <li>
+                    <p>Деякі місця не можна знайти на карті: малозаселені чи незаселені об’єкти, об’єкти що відносяться до культурної чи природної спадщини, маловідомі села і селища тощо.</p>
+                </li>
+            </ol>
+        </div>
+    </main>
+    <footer style="z-index: -2; font-size: 12px !important">
+        <p>2018 Копірайт. Усі права захищені.</p>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

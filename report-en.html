@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0">
+    <title>Plan &amp; Find | Fast geosearch online</title>
+    <link rel="icon" type="image/png" href="img/fic.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext" rel="stylesheet"><!--font-family: 'Open Sans', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="img/logo_plf_with_bg.png">
+        <h1>Plan</h1>
+        <h1>Find</h1>
+        <h1 class="amp">&amp;</h1>
+        <svg id="svgloc" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="30px" height="55px" viewBox="0 0 30 55" preserveAspectRatio="xMidYMid meet" onload="">
+            <defs><path style="stroke:black;stroke-width:1px;fill:khaki;"/></defs>
+            <rect x="0" y="0" width="1450" height="700" style="fill: none; stroke: none;"/>
+            <path d="M2.4928,13.574498c0.1357,-7.792853,6.2195,-12.548462,12.46418,-12.55c8.049837,0.170238,12.60631,5.29521,12.6361,12.3782c0.02979,10.86525,-7.889,22.668,-11.6046,22.951c-3.37177,0.0254,-13.2016,-11.032,-13.4957,-22.779Z"
+                style="stroke:black;fill:#fff;stroke-width:0;" id="e15_area3" transform="matrix(1.07 0 0 1.07 -0.974 -0.269)"/>
+                <circle cx="15.1289" cy="14.0043" style="fill:#004c4c;stroke:0px;stroke-width:0px;" r="6.3"/>
+        </svg>
+        <svg id="svgmg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="80px" viewBox="0 0 170 80" preserveAspectRatio="xMidYMid meet" onload="" >
+            <defs>
+                <polygon style="fill:#f0e68c;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px;"/>
+                <linearGradient gradientUnits="objectBoundingBox" id="lgrd2-b" spreadMethod="pad" x1="0" x2="100%" y1="0" y2="0" gradientTransform=""><stop offset="0%" stop-color="#594700"/><stop offset="100%" stop-color="#f0e68c"/></linearGradient>
+            </defs>
+            <path d="M37.9048,-3.8124l-0.9278,7.999855h7.58687l-1.33945,-8Z" style="fill:url(#lgrd2-b); stroke:black; vector-effect:non-scaling-stroke;stroke-width:0px;" id="e7_shape" transform="matrix(0.001 -1.6856 8.06798 0.0023 70.977 110.184)"/>
+                <circle cx="156" cy="44" style="fill:rgba(0, 76, 76, 0.2);stroke:rgba(0, 76, 76, 0.5);stroke-width:5px;" r="29.8803" transform="matrix(0.8774 0 0 0.8774 -4.1077 4.883)"/>
+                <rect x="0" y="0" width="1450" height="700" style="stroke: none; fill:none;"/><!--filter: url(#blurFilter3);-->
+            <circle cx="152" cy="37" style="fill:rgba(0, 76, 76, 0.2);stroke:#fff;stroke-width:3px;" r="29.9" transform="matrix(0.895341 0 0 0.895341 -4.70271 7.41817)"/>
+        </svg>
+    </div>
+    <div id='cssmenu'>
+        <div id="menu-btn">
+            <div></div><div></div><div></div>
+        </div>
+        <ul>
+            <li><a href='index.html'><span>Home</span></a></li>
+            <li><a href='find-en.html'><span>Find a location</span></a></li>
+            <li class='has-sub'><a href='#'><span>Route planner</span></a><!--active-->
+                <ul>
+                    <li><a href='route/route_how_to-en.html'><span>How to plan a route</span></a></li>
+                    <li class='has-sub'><a href='#'><span>Route planner Apps</span></a>
+                        <ul>
+                        <li><a href='route/route_online_app-en.html'><span>Online route planner</span></a></li>
+                        <li class='last'><a href='route/route_device_app-en.html'><span>Route planner on device</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class='last'><a href='contacts-en.html'><span>Contacts</span></a></li>
+        </ul>
+    </div>
+    <div id="language">
+        <a href="report-ua.html" title="Українська"><img src="img/ua.png"></a>
+    </div>
+    <main>
+        <div class="greeting">
+            <h1 id="greeting">Please, introduce yourself to us and write a message.</h1><!--Введіть адресу локації!-->
+        </div>
+        <form class="form-container row clearfix">
+            <div class="col-1 col-m-1 col-ms-1">      
+                <label>Your name: </label>
+                <div class="inp-text">
+                    <input type="text" class="question report" value="" onkeypress='validN(event)'><label><span class="focus-border"></span></label>
+                </div>
+            </div>
+            <div class="col-1 col-m-1 col-ms-1">
+                <label>Your date of birth: </label>
+                <div class="inp-text">
+                    <input type="text" id="birth" class="question report" value="" maxlength="10" placeholder="optional, [mm.dd.yyyy]" onkeypress='validB(event)'><label><span class="focus-border"></span></label>
+                </div>
+            </div>
+            <div class="col-1 col-m-1 col-ms-1">
+                <label>Your email: </label>
+                <div class="inp-text">
+                    <input type="text" id="email" class="question report" value=""><label><span class="focus-border"></span>
+                </div>
+                <div class="inp-text warning">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-1 col-m-1 col-ms-1">
+                <textarea rows="3" maxlength="1200" id="txtar" name="message" class="question" placeholder="Your message... (please, don't use more than 200 words)" required autocomplete="off"></textarea>
+            </div>
+            <div class="col-1 col-m-1 col-ms-1" align="center">
+                <button id="submit-bt">Send</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>2018 Copyright. All Rights Reserved.</p>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        var textarea = document.querySelector('textarea');
+        textarea.addEventListener('keydown', sizeAuto);  
+        var textarea = document.getElementById("txtar");
+        var wc = $('.form-container').outerWidth();
+        if (window.innerWidth < 550)
+            textarea.cols = wc/9;//The cols HTML DOM  property sets or returns the value of the cols attribute of a text area.
+        else
+            textarea.cols = wc/8;
+
+        function sizeAuto() {
+            var el = this;
+            setTimeout(function() {
+                //el.style.cssText = 'height: auto; padding: 0';
+                // for box-sizing other than "content-box" use:
+                // el.style.cssText = '-moz-box-sizing:content-box';
+                el.style.cssText = 'height:' + el.scrollHeight + 'px';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
