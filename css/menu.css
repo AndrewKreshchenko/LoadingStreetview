@@ -54,8 +54,8 @@ h1.amp.amp-anim {
 }
 @keyframes anim_amp {
     0% {opacity: 0}
-    80% {-webkit-transform: rotateY(90deg);}/*left: 55px; */
-    100% {-webkit-transform: rotateY(0);}
+    80% {opacity: 0; -webkit-transform: rotateY(90deg);}/*left: 55px; */
+    100% {opacity: 1; -webkit-transform: rotateY(0);}
 }
 @keyframes anim_mg {
     from {-webkit-transform: translateX(-25px); -webkit-transform: scale(.8)}
