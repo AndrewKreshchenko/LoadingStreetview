@@ -199,7 +199,7 @@ function onPrompts() {
 /* Footer */
 $(window).scroll(function() {
     if (document.documentElement.scrollHeight > document.documentElement.clientHeight) {
-        if (($(window).scrollTop() + $(window).height()) >= $(document).height()-5)//($(window).scrollTop() + $(window).height() == $(document).height()) {
+        if (($(window).scrollTop() + $(window).height()) >= $(document).height()-70)//($(window).scrollTop() + $(window).height() == $(document).height()) {
             $('footer').fadeIn(500);//console.log("Block " + parseInt($(window).height() + $(window).scrollTop()) + " " +  $(document).height());
         else
             $('footer').fadeOut(500);
