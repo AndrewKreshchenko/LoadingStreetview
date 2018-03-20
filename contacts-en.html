@@ -73,13 +73,13 @@
             <div class="col-1 col-m-1 col-ms-1">
                 <label>Your name: </label>
                 <div class="inp-text">
-                    <input type="text" class="question report" value=""><label><span class="focus-border"></span></label>
+                    <input type="text" class="question report" value="" onkeypress='validN()'><label><span class="focus-border"></span></label>
                 </div>
             </div>
             <div class="col-1 col-m-1 col-ms-1">
                 <label>Your date of birth: </label>
                 <div class="inp-text">
-                    <input type="text" id="birth" class="question report" value="" placeholder="optional, [mm.dd.yyyy]"><label><span class="focus-border"></span></label>
+                    <input type="text" id="birth" class="question report" value="" placeholder="[mm.dd.yyyy]"><label><span class="focus-border"></span></label>
                 </div>
             </div>
             <div class="col-1 col-m-1 col-ms-1">
@@ -95,7 +95,7 @@
                 <textarea id="txtar" name="message" rows="5" class="question" placeholder="Your message... (please, do not use more than 200 words)" required autocomplete="off"></textarea>
             </div>
             <div class="col-1 col-m-1 col-ms-1" align="center">
-                <button id="submit-btn">Send</button>
+                <button id="submit-bt">Send</button>
             </div>
         </form>
         <div class="social_c row clearfix">
