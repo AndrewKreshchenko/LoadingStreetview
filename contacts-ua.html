@@ -73,13 +73,13 @@
             <div class="col-1 col-m-1 col-ms-1">
                 <label>Ім'я: </label>
                 <div class="inp-text">
-                    <input type="text" class="question report" value=""><label><span class="focus-border"></span></label>
+                    <input type="text" class="question report" value="" onkeypress='validN()'><label><span class="focus-border"></span></label>
                 </div>
             </div>
             <div class="col-1 col-m-1 col-ms-1">
                 <label>Дата народження: </label>
                 <div class="inp-text">
-                    <input type="text" id="birth" class="question report" value="" placeholder="необов'язково [дд.мм.рррр]"><label><span class="focus-border"></span></label>
+                    <input type="text" id="birth" class="question report" value="" placeholder="[дд.мм.рррр]"><label><span class="focus-border"></span></label>
                 </div>
             </div>
             <div class="col-1 col-m-1 col-ms-1">
@@ -95,7 +95,7 @@
                 <textarea id="txtar" name="message" rows="5" class="question" placeholder="Ваше повідомлення... (будь ласка, не використовуйте більше 200 слів)" required autocomplete="off"></textarea>
             </div>
             <div class="col-1 col-m-1 col-ms-1" align="center">
-                <button id="submit-btn">Відправити</button>
+                <button id="submit-bt">Відправити</button>
             </div>
         </form>
         <div class="social_c row clearfix">
