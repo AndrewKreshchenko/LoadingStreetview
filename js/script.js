@@ -225,8 +225,17 @@ function validEmail(em) {
     var ch = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return ch.test(em);
 }
-function validB(evt) {
-    var theEvent = evt || window.event;
+function validName(evt) {//Good function to check name, but user can input it in different language.
+    var ch = evt.ch;
+    if (ch != 0) {
+        if (ch < 97 || ch > 122) {
+            evt.preventDefault();
+            return true;// !!! check simple ret
+        }
+    }
+}
+function validB(s) {
+    var theEvent = s || window.event;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode(key);
     var regex = /[0-9]|\./;
@@ -237,15 +246,32 @@ function validB(evt) {
         return false;
     }
 }
+function validN() {
+    var ch = event.keyCode;
+    if (ch != 0) {
+        if ((ch > 7 && ch < 33) || (ch > 64 && ch < 92) || (ch > 95 && ch < 123) || ch  == 39)
+            return false;// !!! check simple ret, check if without brackets inside
+        else {
+            event.preventDefault();
+            return true;
+        }
+    }
+}
 function validBs(str) {    
-    var p = str.split(/[\.]/); // split(/[\.\-\/]/)
+    var p = str.split(/[\.]/);
     var d = parseInt(p[0], 10), m = parseInt(p[1], 10), y = parseInt(p[2], 10);
     var date = new Date(y, m-1, d, 0, 0, 0, 0);
+    if (y < 1900 || y > 2018)
+        return false;
     return m === (date.getMonth() + 1) && d === date.getDate() && y === date.getFullYear();
 }
 $('#submit-bt').on('click', function() {
-    var date = $('#birth').val(), txtarea = $('textarea').val();
-    if (validBs(date) === false) console.log('1186'); 
-    if ((validE() === false) || (txtarea == ""))//(validBs(date) === false) 
-        alert("You didn't fill all the fields.")
+    var date = $('#birth').val(), txtarea = $('textarea').val(), name = $('.form-container').find('input:first-child').val();
+    if (validBs(date) === false) console.log('Date is\'nt correct (mis.: 1186)'); 
+    if ((validName(name) === false) || (validE() === false) || (txtarea == "")) {//(validBs(date) === false)
+        if (langPage == "en")
+            alert("Please, check if all the input fields filled right and try again.")//e.preventDefault();
+        if (langPage == "uk")
+            alert("Перевірте, будь ласка, чи усі поля заповнено вірно і повторіть спробу.")
+    }
 });
