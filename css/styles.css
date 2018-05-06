@@ -13,10 +13,13 @@ body, input, textarea, p > span, button, h1, h2, h3, h4, h5, h6, form, div, ul, 
 }
 p, a, button, label, ul, li, ol, pre, blockquote {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px
+    font-size: 16px
 }
 h1, h2, h3, h4, p > span, h5 {
     font-family: 'Ubuntu Condensed', sans-serif;
+}
+h1, h2, h3, h4 {
+    word-spacing: 3px;
 }
 main {
     padding: 60px 0;
@@ -255,6 +258,7 @@ body::-webkit-scrollbar-thumb, #prompts::-webkit-scrollbar-thumb {
     text-align: center;
 }
 .head_s img {
+    max-width: 90%;
     border-radius: 7px;
 }
 .illustration {
@@ -287,6 +291,7 @@ footer {
 }
 footer p {
     line-height: 0.3;
+    font-size: 12px;
 }
 
 /* Input fields */
