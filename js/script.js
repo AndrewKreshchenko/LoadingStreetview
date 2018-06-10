@@ -244,11 +244,13 @@ function onPrompts() {
 /* Footer */
 $(window).scroll(function() {
     if (document.documentElement.scrollHeight > document.documentElement.clientHeight) {
-        if ($(window).scrollTop() > 1) {
-            $('#cssmenu').fadeOut(500);//$('#cssmenu').css('padding-top', '0');//$("#cssmenu").animate({'padding-top': '0'});
-        }
-        if ($(window).scrollTop() == 0) {
-            $('#cssmenu').fadeIn(500);
+        if ($("body").innerWidth() > 800) {
+            if ($(window).scrollTop() > 1) {
+                $('#cssmenu').fadeOut(500);//$('#cssmenu').css('padding-top', '0');//$("#cssmenu").animate({'padding-top': '0'});
+            }
+            if ($(window).scrollTop() == 0) {
+                $('#cssmenu').fadeIn(500);
+            }
         }
         if (($(window).scrollTop() + $(window).height()) >= $(document).height()-70)//($(window).scrollTop() + $(window).height() == $(document).height()) {
             $('footer').fadeIn(500);//console.log("Block " + parseInt($(window).height() + $(window).scrollTop()) + " " +  $(document).height());
