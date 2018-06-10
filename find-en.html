@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/for_user.css">
     <script type="text/javascript" async="" src="js/libs/ga.js"></script>
-	<script type="text/javascript" src="js/libs/jquery.min.js"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDgHvUlz5mGrrG0qf59OsEqjpQJUJeWJI"></script>
 </head>
 <body>
     <div class="logo">
@@ -44,49 +44,52 @@
             <div></div><div></div><div></div>
         </div>
         <ul>
-            <li><a href='index.html'><span>Home</span></a></li>
-            <li><a href='#'><span>Find a location</span></a></li>
-            <li class='has-sub'><a href='#'><span>Route planner</span></a>
+            <li><a href="index.html"><span>Home</span></a></li>
+            <li class="active-item"><a href="#"><span>Find a location</span></a></li>
+            <li class="has-sub"><a href='#'><span>Route planner</span></a>
                 <ul>
-                    <li><a href='route/route_how_to-en.html'><span>How to plan a route</span></a></li>
-                    <li class='has-sub'><a href='#'><span>Online route planner</span></a>
+                    <li><a href="route/route_how_to-en.html"><span>How to plan a route</span></a></li>
+                    <li class="has-sub"><a href="#"><span>Online route planner</span></a>
                         <ul>
-                        <li><a href='route/route_online_app-en.html'><span>Online route planner</span></a></li>
-                        <li class='last'><a href='route/route_device_app-en.html'><span>Route planner on device</span></a></li>
+                        <li><a href="route/route_online_app-en.html"><span>Online route planner</span></a></li>
+                        <li class="last"><a href="route/route_device_app-en.html"><span>Route planner on device</span></a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
-            <li class='last'><a href='contacts-en.html'><span>Contacts</span></a></li>
+            <li class="last"><a href="contacts-en.html"><span>Contacts</span></a></li>
         </ul>
     </div>
     <div id="language">
         <a href="find-ua.html" title="Українська"><img src="img/ua.png"></a>
     </div>
     <main>
-        <div class="greeting">
-            <h1 id="greeting">Enter the address of location!</h1><!--Введіть адресу локації!-->
-        </div>
+        <!--<div class="greeting">
+            <h1 id="greeting">Enter the address of location!</h1>
+        </div>-->
         <form id="form-container" class="form-container row clearfix">
+            <div class="greeting">
+                <h2 id="greeting">Enter the address of location</h2>
+            </div>
             <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <label for="street">Street: </label>
+                <label for="street">Street: </label>
                 <div class="inp-text">
                     <input type="text" class="question" id="street" value=""><label for="nme"><span class="focus-border"></span></label>
                 </div>
             </div>
             <div class="container-inp col-2 col-m-2 col-ms-1">
-                <!--<div class="inp-block">
-                    <div class="labels">-->
                 <label for="city">City: </label>
                 <div class="inp-text">
                     <input type="text" class="question" id="city" value=""><label for="nme"><span class="focus-border"></span></label>
                 </div>
             </div>
-            <div class="col-2 col-m-2 col-ms-1">
-                <label for="street">Do you want to get articles?</label>
-            </div>
             <div class="switch_box col-2 col-m-2 col-ms-1">
-                <div class="input_wrapper">
+                <div class="form-line">
+                    <label for="street">Do you want to get articles?</label>
+                </div>
+            </div>
+            <div class="container-inp col-2 col-m-2 col-ms-1">
+                <div class="form-line input_wrapper">
                     <input type="checkbox" id="switch">
                     <svg class="is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
                         <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
@@ -96,14 +99,15 @@
                     </svg>
                 </div>
             </div>
-            <div class="btn-subm">
+            <div class="col-1 col-m-1 col-ms-1 btn-subm">
                 <button id="submit-btn">Submit</button>
                 <div class="refs">
                     <p><a href="javascript:void(0);" onclick="onPrompts()">Recomends and examples</a></p><!--Поради і приклади--><!--для пошуку-->
                     <p><a target="_blank" href="report-en.html">Report a problem</a></p><!--Повідомити про проблему-->
                 </div>
             </div>
-            <div id="bti" class="btn-subm" style="display: none; border: 1px solid transparent; border-top-color: #fff;">
+            <div id="bti" class="btn-subm">
+                <div id="map-canv"></div>
                 <button>Show full image</button>
             </div>
         </form>
@@ -119,14 +123,14 @@
         <div class="row clearfix articles" style="display: none"><!--style="display: none"-->
             <div class="wikipedia-container col-2 col-m-1 col-ms-1">
                 <h3 id="wikipedia-header">Wikipedia articles</h3><!--Посилання з Вікіпедії-->
-                <ul id="wikipedia-links" class="main_txt">Type in an address above and get Wikipedia article about a location here!</ul><!--Type in an address above and find relevant Wikipedia articles here!-->
+                <ul id="wikipedia-links" class="main_txt">Type in an address above and get Wikipedia article about a location here.</ul><!--Type in an address above and find relevant Wikipedia articles here!-->
             </div>
             <div class="nytimes-container col-2 col-m-1 col-ms-1">
                 <h3 id="nytimes-header">New York Times <span>articles</span></h3><!--Статті New York Times-->
                 <ul id="nytimes-articles">What's going on in places you're interested in? Input the address in English to get NY Times articles.</ul><!--and the NY Times can tell you here-->
             </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
         </div>
-        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 300px">
+        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 280px">
             <div id="close-p"><img draggable="none" src="img/close.png"></div>
             <h3>Here are some examples that can help you to input address correctly.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
             <ol>
