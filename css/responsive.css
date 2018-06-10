@@ -13,6 +13,11 @@
     display: table;
     clear: both;
 }
+@media all and (min-resolution: 192dpi) {
+    #ssmenu {
+        width: 100%
+    }
+}
 @media screen and (max-width: 950px) {
     .cssmenu {
         width: 75%;
@@ -39,6 +44,9 @@
     .col-3 {
         width: 33.33%;
         float: left
+    }
+    main {
+        padding: 70px 0 60px 0;
     }
     #page_footer {
         padding: 0 40px;
@@ -94,7 +102,7 @@
         left: -35px;
     }*/
     #svgmg {
-        top: -5px;
+        /*top: -5px;*/
     }
     #cssmenu #menu-btn {
         font-size: 18px;
@@ -119,6 +127,10 @@
     .col-ms-2 {
         width: 50%;
         float: left;
+    }
+    h1.amp {
+        margin-top: -50px;
+        margin-left: 85px;
     }
     .greeting {
         width: 75%;
