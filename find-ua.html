@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/for_user.css">
     <script type="text/javascript" async="" src="js/libs/ga.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDgHvUlz5mGrrG0qf59OsEqjpQJUJeWJI"></script>
 </head>
 <body>
     <div class="logo">
@@ -44,7 +45,7 @@
         </div>
         <ul>
             <li><a href='index-ua.html'><span>Домашня сторінка</span></a></li>
-            <li><a href='#'><span>Знайти локацію</span></a></li>
+            <li class="active-item"><a href='#'><span>Знайти локацію</span></a></li>
             <li class='has-sub'><a href='#'><span>Спланувати маршрут</span></a>
                 <ul>
                     <li><a href='route/route_how_to-ua.html'><span>Як спланувати похід</span></a></li>
@@ -95,14 +96,15 @@
                     </svg>
                 </div>
             </div>
-            <div class="btn-subm">
+            <div class="col-1 col-m-1 col-ms-1 btn-subm">
                 <button id="submit-btn">Підтвердити</button>
                 <div class="refs">
                     <p><a href="javascript:void(0);" onclick="onPrompts()">Поради і приклади</a></p><!--Поради і приклади--><!--для пошуку-->
-                    <p><a target="_blank" href="report-ua.html">Повідомити про проблему</a></p><!--Повідомити про проблему-->
+                    <p><a target="_blank" href="report-en.html">Повідомити про проблему</a></p><!--Повідомити про проблему-->
                 </div>
             </div>
-            <div id="bti" class="btn-subm" style="display: none; border: 1px solid transparent; border-top-color: #fff;">
+            <div id="bti" class="btn-subm">
+                <div id="map-canv"></div>
                 <button>Показати зображення повністю</button>
             </div>
         </form>
@@ -125,14 +127,14 @@
                 <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
             </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
         </div>
-        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 300px">
+        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 280px">
             <div id="close-p"><img draggable="no" src="img/close.png"></div>
             <h3>Нижче подані приклади можуть допомогти вам ввести адресу правильно.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
             <ol>
                 <li>
                     <p>Не обов'язково вводити назву країни чи позначати адміністративно-територіальну одиниицю у скороченому чи повному вигляді ("місто", "село", "округ") або "штат" (якщо США) щоб отримати фотографію Google місцевості відповідно до введених даних. 
                     Але це може бути необхідним уточненням якщо Вам не вдалося отримати правильний результат.</p>
-                    <p>Вулиця: <span class="example">[Назва вулці], [номер об'єкту]</span> Місто:<span class="example"> [Назва міста]</span></p><!--<p class="example"><i>Вулиця</i>[Назва вулиці], [номер об'єкту]; <i>Місто</i>[Назва міста]</p>-->
+                    <p>Вулиця: <span class="example">[Назва вулиці], [номер об'єкту]</span> Місто:<span class="example"> [Назва міста]</span></p><!--<p class="example"><i>Вулиця</i>[Назва вулиці], [номер об'єкту]; <i>Місто</i>[Назва міста]</p>-->
                     <p>Вулиця: <span class="example">[номер об'єкту], [Назва вулці]</span> Місто:<span class="example"> [Назва міста]</span></p>
                     <p>Street: <span class="example">Галицька, 7</span> City: <span class="example">Червоноград</p><!--округ-->
                     <p>Street: <span class="example">73, Franklin Avenue</span> City: <span class="example">Brooklin</p>
