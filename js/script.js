@@ -1,5 +1,8 @@
 /* Load data by request */
 var flag = false, f_m = false, langPage = $('html')[0].lang;
+var geocoder;
+var map;
+var address ="San Diego, CA";
 function loadData() {
     var $body = $('body');
     var $wikiElem = $('#wikipedia-links');
@@ -19,6 +22,7 @@ function loadData() {
     var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + street + ', ' + city + '';
     $body.append('<img id="bgimg" src="' + streetviewUrl + '">');
     $('#bti').css('display', 'block');
+    loadMapView(city, street);
     if (flag === true) {
         loadArticles(city);
         loadfrWiki(city);
@@ -36,10 +40,6 @@ function loadArticles(city) {
         url: url,
         method: 'GET',
     }).done(function(result) {
-        //document.getElementById("nytimes-article").innerHTML = result.response.docs["0"].headline.main;
-        //var nytElem = document.getElementById("nytimes-articles");
-        //var createElem();
-        //$nytHeaderElem.text('NewYorkTimes Articles about' + city);
         articles = result.response.docs;
         for (var i = 0; i < articles.length; i++) {
             $("#nytimes-articles").append('<li class="article">' + '<a href="' + articles[i].web_url + '">' + articles[i].headline.main + '</a>' + '<p>' + articles[i].snippet + '</p>' + '</li>');
@@ -52,6 +52,45 @@ function loadArticles(city) {
             $('#nytimes-articles').text("Поки що немає статей для даної місцевості.");
         throw err;
     });
+}
+function loadMapView(city, st) {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeControl: true,
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+        navigationControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map-canv"), myOptions);
+    var adrs = city + ", " + st;
+    if (geocoder) {
+        geocoder.geocode( { 'address': st}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                map.setCenter(results[0].geometry.location);
+                    var infowindow = new google.maps.InfoWindow(
+                        { content: '<b>'+ st +'</b>',
+                        size: new google.maps.Size(10, 5)
+                        });
+                    var marker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map, 
+                        title: st
+                    }); 
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, marker);
+                    });
+                } else {
+                    alert("No results found");
+                }
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
 }
 function correctLoc(value) {
 	var bs = new RegExp("[ ]{1,}","g");
@@ -112,6 +151,12 @@ function outAreaM(e) {
         f_m = true;
     }
 }
+/*function noOutAreaM() {
+    if (document.body.removeEventListener)
+        document.body.removeEventListener("mouseup", outAreaM);
+    if (document.body.detachEvent)
+        document.body.detachEvent("mouseup", outAreaM);//if IEv.8
+}*/
 function outAreaP(e) {
     var co1 = $("#prompts");
     if (e.target.id != co1.attr('id') && !co1.has(e.target).length) {//co1.attr('id')
@@ -199,6 +244,12 @@ function onPrompts() {
 /* Footer */
 $(window).scroll(function() {
     if (document.documentElement.scrollHeight > document.documentElement.clientHeight) {
+        if ($(window).scrollTop() > 1) {
+            $('#cssmenu').fadeOut(500);//$('#cssmenu').css('padding-top', '0');//$("#cssmenu").animate({'padding-top': '0'});
+        }
+        if ($(window).scrollTop() == 0) {
+            $('#cssmenu').fadeIn(500);
+        }
         if (($(window).scrollTop() + $(window).height()) >= $(document).height()-70)//($(window).scrollTop() + $(window).height() == $(document).height()) {
             $('footer').fadeIn(500);//console.log("Block " + parseInt($(window).height() + $(window).scrollTop()) + " " +  $(document).height());
         else
@@ -258,7 +309,7 @@ function validN() {
     }
 }
 function validBs(str) {    
-    var p = str.split(/[\.]/);
+    var p = str.split(/[\.]/); // split(/[\.\-\/]/)
     var d = parseInt(p[0], 10), m = parseInt(p[1], 10), y = parseInt(p[2], 10);
     var date = new Date(y, m-1, d, 0, 0, 0, 0);
     if (y < 1900 || y > 2018)
