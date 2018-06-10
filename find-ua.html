@@ -64,10 +64,10 @@
         <a href="find-en.html" title="English"><img src="img/en.png"></a>
     </div>
     <main>
-        <div class="greeting">
-            <h1 id="greeting">Введіть адресу місцевості!</h1><!--Введіть адресу локації!-->
-        </div>
         <form id="form-container" class="form-container row clearfix">
+            <div class="greeting">
+                <h2 id="greeting">Введіть адресу локації</h2>
+            </div>
             <div class="container-inp col-2 col-m-2 col-ms-1">
                     <label for="street">Вулиця: </label>
                 <div class="inp-text">
@@ -117,16 +117,6 @@
         <div id="alert-b"><p>У цілях безпеки не дозволяється завантажувати більше 25 фото за день.</p></div>
         <!--<div class="subm col-2 col-m-2 col-ms-1">
         </div>-->
-        <div class="row clearfix articles" style="display: none">
-            <div class="wikipedia-container col-2 col-m-1 col-ms-1">
-                <h3 id="wikipedia-header">Посилання на Вікіпедію</h3><!--Посилання з Вікіпедії-->
-                <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul><!--Введіть адресу в полях, щоб отримати відповідні посилання на джерела Вікіпедії.-->
-            </div>
-            <div class="nytimes-container col-2 col-m-1 col-ms-1">
-                <h3 id="nytimes-header"><span>Статті</span> (New York Times)</h3><!--Статті New York Times-->
-                <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
-            </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
-        </div>
         <div id="prompts" class="p_anim row clearfix" style="display: none; height: 280px">
             <div id="close-p"><img draggable="no" src="img/close.png"></div>
             <h3>Нижче подані приклади можуть допомогти вам ввести адресу правильно.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
@@ -162,6 +152,16 @@
                     <p>Деякі місця не можна знайти на карті: малозаселені чи незаселені об’єкти, об’єкти що відносяться до культурної чи природної спадщини, маловідомі села і селища тощо.</p>
                 </li>
             </ol>
+        </div>
+        <div class="row clearfix articles" style="display: none">
+            <div class="wikipedia-container col-2 col-m-1 col-ms-1">
+                <h3 id="wikipedia-header">Посилання на Вікіпедію</h3><!--Посилання з Вікіпедії-->
+                <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul><!--Введіть адресу в полях, щоб отримати відповідні посилання на джерела Вікіпедії.-->
+            </div>
+            <div class="nytimes-container col-2 col-m-1 col-ms-1">
+                <h3 id="nytimes-header"><span>Статті</span> (New York Times)</h3><!--Статті New York Times-->
+                <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
+            </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
         </div>
     </main>
     <footer style="z-index: -2; font-size: 12px !important">
