@@ -1,8 +1,8 @@
 /* Logo icon */
-.logo {
-    position: fixed;
-    top: -3px;
-    left: 20px;
+.logo {/*!!! Where margin-|top|left|right|bottom| - was |top|left|right|bottom|*/
+    position: absolute;
+    margin-top: -3px;
+    margin-left: 20px;
     z-index: 5;
 }
 .logo h1, #cssmenu #menu-btn {
@@ -12,7 +12,7 @@
 }
 .logo img {
     position: absolute;
-    left: -20px;
+    margin-left: -20px;
     width: 130px;
     transform-style: preserve-3d;
     z-index: -2;
@@ -21,8 +21,8 @@ h1.amp, #svgloc {
     position: absolute;
 }
 h1.amp {
-    top: 10px;
-    left: 65px;
+    margin-top: -55px;
+    margin-left: 65px;
     font-size: 36px;
     /*transform-origin: 50% 100%; transform-origin: 100% 12px;*/
 }
@@ -30,16 +30,16 @@ h1.amp.amp-anim {
     -webkit-animation: anim_amp 2.5s;
 }
 #svgmg {
-    position: fixed;
-    top: 0;
-    left: -35px;
+    position: absolute;
+    margin-top: -85px;
+    margin-left: -55px;
 }
 #svgmg.svg-mg {
     -webkit-animation: anim_mg 1s ease-out;
 }
 #svgloc {
-    top: 22px;
-    left: 60px;
+    margin-top: -65px;
+    margin-left: 60px;
     opacity: 0;
     /*transform-origin: 100% 16px; /* half of height */
 }
@@ -48,8 +48,8 @@ h1.amp.amp-anim {
 }
 .clipped {
     position: absolute;
-    /*-webkit-clip-path: url(#svgPath);
-    clip-path: url(#svgPath);*/
+    -webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);
     /*-webkit-animation: anim_img 1s;*/
 }
 @keyframes anim_amp {
@@ -70,9 +70,12 @@ h1.amp.amp-anim {
 
 /* Languages */
 #language {
-    position: fixed;
-    top: 5px;
-    right: 0;
+    /*position: absolute;
+    margin-right: 0;
+    right: 0;*/
+    float: right;
+    -webkit-transform: translateY(40px);
+    z-index: 35;
 }
 #language img {
     margin: 5px; 
@@ -80,7 +83,7 @@ h1.amp.amp-anim {
     box-shadow: 0 0 16px #000;
 }
 #language img, .cssmenu ul li a, #cssmenu #menu-btn {
-    border-radius: 7px
+    border-radius: 10px
 }
 
 /* Menus */
@@ -112,14 +115,10 @@ h1.amp.amp-anim {
     line-height: 0;
     height: 0;
 }
-#cssmenu #menu-btn {
-    display: none;
-}
 #cssmenu {
-    margin-left: 130px;
-    position: fixed;
-    left: 0;
-    width: auto;
+    margin-left: 205px;
+    padding-top: 35px;
+    position: fixed;/*width: auto;*/
     font-family: 'Open Sans', sans-serif;
     /*background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
@@ -150,7 +149,7 @@ h1.amp.amp-anim {
 }
 #cssmenu ul li a {
     -webkit-box-shadow: 1px 1px 5px #222 inset;
-    border-radius: 7px;
+    border-radius: 10px;
     background: #006060;
     -webkit-transition: background-color .5s
 }
@@ -166,7 +165,8 @@ h1.amp.amp-anim {
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover,
-#cssmenu > ul > li.active > a {
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li.active-item > a {
     color: #fff;
     background: #004242
 }
@@ -272,7 +272,8 @@ h1.amp.amp-anim {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 #cssmenu ul ul li:hover > a,
-#cssmenu ul ul li.active > a {
+#cssmenu ul ul li.active > a,
+#cssmenu ul ul li.active-item-sub > a {
     color: #222;
 }
 /*#cssmenu ul ul li:first-child > a {
@@ -314,7 +315,7 @@ h1.amp.amp-anim {
 }
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
     #cssmenu {/*ul > li:not(:first-child) */
-        margin: 75px 0 0 0;
+        margin: 50px 0 0 0;
     }
     #cssmenu > ul {
         display: none;
@@ -377,16 +378,16 @@ h1.amp.amp-anim {
         right: auto;
         top: auto;
         opacity: 1;
-        width: 100%;
+        width: 90%;
         padding: 0;
         position: relative;
         text-align: left;
     }
     #cssmenu ul ul li {
-        width: 100%;
+        width: 90%;
     }
     #cssmenu ul ul li a {
-        width: 100%;
+        width: 90%;
         margin-left: 20px;
         box-shadow: none;
     }
