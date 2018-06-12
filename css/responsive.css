@@ -45,9 +45,6 @@
         width: 33.33%;
         float: left
     }
-    main {
-        padding: 70px 0 60px 0;
-    }
     #page_footer {
         padding: 0 40px;
     }
@@ -63,6 +60,9 @@
     .col-m-3 {
         width: 33.33%;
         float: left
+    }
+    main {
+        padding: 70px 0 60px 0;
     }
     /* Logo icon */
     .logo {
