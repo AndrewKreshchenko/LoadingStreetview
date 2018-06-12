@@ -111,24 +111,25 @@ a:after {
 .form-line {
     display: block;
 }
-/*.inp-block {
-    display: block
-}
-.inp-text input {   
-}*/
 .refs {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: block;
 }
 .inp-text, .labels {
     display: inline-block
 }
-.greeting h1 {/*.labels label, .refs a*/
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, .8);
+.greeting h2 {/*.labels label, .refs a*/
+    padding-top: 20px;/*text-shadow: 1px 1px 4px rgba(0, 0, 0, .8);*/
 }
 .greeting p {
     padding-left: 10px;
     text-align: left;
+}
+.greeting, .subm {  
+    text-align: center;
+}
+.subm {
+    width: 100%;
 }
 .main_txt p:not(.img_art) {
     text-indent: 1.5em
@@ -141,12 +142,6 @@ a:after {
 }
 .labels {
     width: 65px;
-}
-.greeting, .subm { 
-    text-align: center;
-}
-.subm {
-    width: 100%;
 }
 
 /* Prompts */
