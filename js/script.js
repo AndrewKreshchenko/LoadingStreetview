@@ -244,7 +244,7 @@ function onPrompts() {
 /* Footer */
 $(window).scroll(function() {
     if (document.documentElement.scrollHeight > document.documentElement.clientHeight) {
-        if ($("body").innerWidth() > 800) {
+        if ($("body").innerWidth() > 1024) {
             if ($(window).scrollTop() > 1) {
                 $('#cssmenu').fadeOut(500);//$('#cssmenu').css('padding-top', '0');//$("#cssmenu").animate({'padding-top': '0'});
             }
