@@ -9,7 +9,7 @@ Used APIs:
 1. Google APIs
     - Geocoding API
     - Maps JavaScript API
-    - Street View Static
+    - Street View Static API
 2. Wikipedia API (to load articles)
 3. NewYork Times API (to load articles)
 
