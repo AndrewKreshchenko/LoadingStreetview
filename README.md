@@ -1,8 +1,7 @@
 # Plan & Find
 The website is **under development** yet.
 First version appeared in spring 2018. Also plan to improve my design.
-
-[Link](https://andrewkreshchenko.github.io/LoadingStreetview/).
+[See it here](https://andrewkreshchenko.github.io/LoadingStreetview/)
 
 Used APIs:
 1. Google APIs
