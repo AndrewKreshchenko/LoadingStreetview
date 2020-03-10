@@ -1,5 +1,15 @@
 # Plan & Find
-For this website were used APIs and AJAX technologies. (Temporary without Back-End).
-This website was built using [GitHub Pages](https://andrewkreshchenko.github.io/LoadingStreetview/).
+The website is **under development** yet.
+First version appeared in spring 2018. Also plan to improve my design.
 
-P. S. I will improve my design because already know a better solution.
+Link [GitHub Pages](https://andrewkreshchenko.github.io/LoadingStreetview/).
+
+Used APIs:
+1. Google APIs
+  - Geocoding API
+  - Maps JavaScript API
+  - Street View Static
+2. Wikipedia API (to load articles)
+3. NewYork Times API (to load articles)
+
+Node.js is aimed to be used for server-side.
