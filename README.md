@@ -1,6 +1,8 @@
 # Plan & Find
+_from spring 2018_
+
 The website is **under development** yet.
-First version appeared in spring 2018. Also plan to improve my design.
+Fir appeared in . Also plan to improve my design.
 [See it here](https://andrewkreshchenko.github.io/LoadingStreetview/)
 
 Used APIs:
@@ -11,4 +13,4 @@ Used APIs:
 2. Wikipedia API (to load articles)
 3. NewYork Times API (to load articles)
 
-Node.js is aimed to be used for server-side.
+[Node.js](https://nodejs.org/en/) is aimed to be used for server-side.
