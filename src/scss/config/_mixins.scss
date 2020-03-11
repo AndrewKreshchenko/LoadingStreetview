@@ -1,0 +1,122 @@
+// MIXINN
+// --------------------------------------------------
+
+@mixin prefix_two_val($property, $value1, $value2, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: #{$value1},#{$value2};
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: #{$value1},#{$value2};
+}
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+@mixin transition($properties, $duration) {
+  $props: ();
+  $duration: unquote($duration);
+
+  @each $p in $properties {
+      $props: append($props, $p $duration, comma);
+  }
+
+  -moz-transition: $props, -moz-transform $duration;
+  -webkit-transition: $props, -webkit-transform $duration;
+  -o-transition: $props, -o-transform $duration;
+  transition: $props, transform $duration;
+}
+
+// Animations
+// Add vendor prefixes to keyframes
+@mixin keyframe ($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation, $duration, $transition) {
+  -webkit-animation-name: $animation;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-timing-function: $transition;
+  animation-name: $animation;
+  animation-duration: $duration;
+  animation-timing-function: $transition
+}
+
+
+// @mixin unify-parent($child, $selector) {
+//   @at-root #{$selector.unify(&, $child)} {
+//     @content;
+//   }
+// }
+
+// Breakpoints
+// Small devices
+@mixin sm {
+   @media (min-width: #{$screen-mobile}) {
+       @content;
+   }
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-mobile}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-tablet}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg_device}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-desktop}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xxl {
+   @media (min-width: #{$screen-fullhd}) {
+       @content;
+   }
+}
+
+// Custom screen with max/min-width parametres
+@mixin rwd($media_feature, $screen) {
+  @media (#{$media_feature}: #{$screen}) {
+    @content;
+  }
+}
+
+// Custom screen with two max/min-width/height parametres
+@mixin rwd_two($break1, $break2, $screen1, $screen2) {
+  @if ($break1 and $break2) {
+    $break2: $break1 !default;
+    @media (#{$break1}: #{$screen1}) and (#{$break2}: #{$screen2}) {
+      @content;
+    }
+  }
+  @else if ($break2 == null) {
+    @media (#{$break1}: #{$screen1}) {
+      @content;
+    }
+  }
+}
