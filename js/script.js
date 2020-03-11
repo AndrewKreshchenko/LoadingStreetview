@@ -55,39 +55,45 @@ function loadArticles(city) {
 }
 function loadMapView(city, st) {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(45.522894,-122.989827);
     var myOptions = {
-        zoom: 8,
+        zoom: 15,
         center: latlng,
         mapTypeControl: true,
         mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
         navigationControl: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    map = new google.maps.Map(document.getElementById("map-canv"), myOptions);
-    var adrs = city + ", " + st;
+    map = new google.maps.Map(document.getElementById('map-canv'), myOptions);
+    var adrs = city + ', ' + st;
     if (geocoder) {
-        geocoder.geocode( { 'address': st}, function(results, status) {
+        geocoder.geocode({'address': adrs}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-                map.setCenter(results[0].geometry.location);
+                    //var sv = new google.maps.StreetViewService();
+                    //panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+                    //sv.getPanorama({location: {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}, radius: 50}, processSVData);
+                    //console.log(panorama);
+                    map.setCenter(results[0].geometry.location);
                     var infowindow = new google.maps.InfoWindow(
-                        { content: '<b>'+ st +'</b>',
-                        size: new google.maps.Size(10, 5)
-                        });
+                        {content: '<b>'+ st +'</b>',size: new google.maps.Size(10, 5)}
+                    );
                     var marker = new google.maps.Marker({
                         position: results[0].geometry.location,
                         map: map, 
                         title: st
-                    }); 
+                    });
                     google.maps.event.addListener(marker, 'click', function() {
                         infowindow.open(map, marker);
                     });
+                    
+                    let cords = results[0].geometry.location;
+                    document.getElementById('bgimg').src = 'https://maps.googleapis.com/maps/api/streetview?size=400x400&location='+cords.lat()+','+cords.lng()+'&fov=80&heading=70&pitch=0&key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY';
                 } else {
-                    alert("No results found");
+                    alert('No results found');
                 }
             } else {
-                alert("Geocode was not successful for the following reason: " + status);
+                alert('Geocode was not successful for the following reason: ' + status);
             }
         });
     }
