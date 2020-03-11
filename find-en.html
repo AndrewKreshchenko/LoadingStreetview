@@ -107,13 +107,13 @@
             </div>
             <div id="bti" class="btn-subm">
                 <div id="map-canv"></div>
-                <button>Show full image</button>
             </div>
         </form>
-        <div id="fullimg" style="display: none">
-            <div id="close-im">
-                <li><img draggable="no" src="img/close.png"></li>
-                <li><a href="#" download><img src="img/dl.png"></a></li>
+        <button id="show-view-btn">Show full image</button>
+        <div id="fullimg" style="display: none" alt="Location View">
+            <div>
+                <img id="view-close" draggable="no" src="img/close.png">
+                <a href="#" id="view-download" target="_blank" download><img src="img/dl.png" alt="Location View to download"></a>
             </div>
             <div id="alert-b"><p>For security reasons, it is allowed to download no more than 25 photos per day.</p></div>
         </div>
