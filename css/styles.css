@@ -67,6 +67,15 @@ a:after {
     opacity: 1;
     -webkit-animation: opac .5s;
 }
+#fullimg > div {
+    text-align: center;
+}
+#fullimg > div > img {
+    margin-right: 20px
+}
+#view-close {
+    width: 40px
+}
 #bgimg {
     z-index: -1;
 }
@@ -190,9 +199,6 @@ a:after {
 }
 .example {
     color: #bbb;
-}
-#view-close {
-    width: 40px
 }
 #close-p img, #close-im img, #close-f img, #fullimg img:last-child {
     width: 40px;
