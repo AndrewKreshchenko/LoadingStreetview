@@ -71,7 +71,8 @@ a:after {
     text-align: center;
 }
 #fullimg > div > img {
-    margin-right: 20px
+    margin-right: 20px;
+    cursor: pointer
 }
 #view-close {
     width: 40px
