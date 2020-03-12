@@ -220,10 +220,7 @@ document.querySelector('#close-p img').addEventListener('click', function() {
 });
 document.getElementById('show-view-btn').addEventListener('click', function() {
     document.getElementById('bgimg').style.zIndex = '11';
-    document.getElementById('fullimg').style.css.display = 'block'
-    /*$('#fullimg').append('<img src="' + im + '">');
-    $('#fullimg a').attr('href', im);
-    $('#fullimg').css('display', 'block');*/
+    document.getElementById('fullimg').style.display = 'block'
 });
 document.getElementById('view-close').addEventListener('click', function() {
     document.getElementById('fullimg').style.display = 'none';
