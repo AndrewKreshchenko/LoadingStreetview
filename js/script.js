@@ -91,12 +91,15 @@ function loadMapView(city, st) {
                     });
                     
                     let cords = results[0].geometry.location;
+                    document.getElementById('show-view-btn').style.display = 'inline';
                     document.getElementById('bgimg').src = 'https://maps.googleapis.com/maps/api/streetview?size=400x400&location='+cords.lat()+','+cords.lng()+'&fov=80&heading=70&pitch=0&key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY';
                 } else {
-                    alert('No results found');
+                    langPage == 'en' ? alert('No results found.') : alert('Результатів не знайдено.');
+                    document.getElementById('show-view-btn').style.display = 'none';
                 }
             } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+                langPage == 'en' ? alert('Geocode was not successful for the following reason: ' + status) : alert('Запит Geocode не був успішний з наступної причини: ' + status);
+                document.getElementById('show-view-btn').style.display = 'none';
             }
         });
     }
