@@ -333,9 +333,10 @@ document.getElementById('switch').addEventListener('change', function() {
 document.querySelector('#close-p img').addEventListener('click', function() {
     document.getElementById('prompts').style.display = 'none';
 });
-document.getElementById('show-view-btn').addEventListener('click', function() {
+document.getElementById('show-view-btn').addEventListener('click', function(e) {
     document.getElementById('bgimg').style.zIndex = '11';
-    document.getElementById('fullimg').style.display = 'block'
+    document.getElementById('fullimg').style.display = 'block';
+	e.preventDefault();
 });
 document.getElementById('view-close').addEventListener('click', function() {
     document.getElementById('fullimg').style.display = 'none';
