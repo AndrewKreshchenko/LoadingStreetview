@@ -13,4 +13,4 @@ Used APIs:
 2. Wikipedia API (to load articles)
 3. NewYork Times API (to load articles)
 
-:thought_balloon: [Node.js](https://nodejs.org/en/) is aimed to be used for server-side. Pug --- to render components to static markup.
+:thought_balloon: [Node.js](https://nodejs.org/en/) is aimed to be used for server-side. Pug — to render components to static markup.
