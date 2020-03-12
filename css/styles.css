@@ -191,6 +191,9 @@ a:after {
 .example {
     color: #bbb;
 }
+#view-close {
+    width: 40px
+}
 #close-p img, #close-im img, #close-f img, #fullimg img:last-child {
     width: 40px;
     cursor: pointer
