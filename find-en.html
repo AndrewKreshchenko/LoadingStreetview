@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0">
-    <title>Plan &amp; Find | Fast geosearch online</title>
+    <title>Plan &amp; Find | Швидкий геопошук онлайн</title>
     <link rel="icon" type="image/png" href="img/fic.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/menu.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/for_user.css">
+    <!-- <script type="text/javascript" async="" src="js/libs/ga.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY"></script>
+    
 </head>
 <body>
     <div class="logo">
@@ -29,7 +31,7 @@
         </svg>
         <svg id="svgmg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="80px" viewBox="0 0 170 80" preserveAspectRatio="xMidYMid meet" onload="" >
             <defs>
-                <polygon style="fill:#e7da61;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px;"/>
+                <polygon style="fill:#f0e68c;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px;"/>
                 <linearGradient gradientUnits="objectBoundingBox" id="lgrd2-b" spreadMethod="pad" x1="0" x2="100%" y1="0" y2="0" gradientTransform=""><stop offset="0%" stop-color="#594700"/><stop offset="100%" stop-color="#f0e68c"/></linearGradient>
             </defs>
             <path d="M37.9048,-3.8124l-0.9278,7.999855h7.58687l-1.33945,-8Z" style="fill:url(#lgrd2-b); stroke:black; vector-effect:non-scaling-stroke;stroke-width:0px;" id="e7_shape" transform="matrix(0.001 -1.6856 8.06798 0.0023 70.977 110.184)"/>
@@ -38,78 +40,116 @@
             <circle cx="152" cy="37" style="fill:rgba(0, 76, 76, 0.2);stroke:#fff;stroke-width:3px;" r="29.9" transform="matrix(0.895341 0 0 0.895341 -4.70271 7.41817)"/>
         </svg>
     </div>
-    <div id='cssmenu'>
-        <div id="menu-btn">
+    <div id='cssmenu' data-hide="click-outside">
+        <div id="menu-btn" data-attach="#cssmenu">
             <div></div><div></div><div></div>
         </div>
         <ul>
-            <li><a href="index.html"><span>Home</span></a></li>
-            <li class="active-item"><a href="#"><span>Find a location</span></a></li>
-            <li class="has-sub"><a href='#'><span>Route planner</span></a>
+            <li><a href='index-ua.html'><span>Домашня сторінка</span></a></li>
+            <li class="active-item"><a href='#'><span>Знайти локацію</span></a></li>
+            <li class='has-sub'><a href='#'><span>Спланувати маршрут</span></a>
                 <ul>
-                    <li><a href="route/route_how_to-en.html"><span>How to plan a route</span></a></li>
-                    <li class="has-sub"><a href="#"><span>Online route planner</span></a>
+                    <li><a href='route/route_how_to-ua.html'><span>Як спланувати похід</span></a></li>
+                    <li class='has-sub'><a href='#'><span>Застосунки для планування маршрутів</span></a>
                         <ul>
-                        <li><a href="route/route_online_app-en.html"><span>Online route planner</span></a></li>
-                        <li class="last"><a href="route/route_device_app-en.html"><span>Route planner on device</span></a></li>
+                        <li><a href='route/route_online_app-ua.html'><span>Онлайн-планувальники</span></a></li>
+                        <li class='last'><a href='route/route_device_app-ua.html'><span>Планувальники для гаджетів</span></a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
-            <li class="last"><a href="contacts-en.html"><span>Contacts</span></a></li>
+            <li class='last'><a href='contacts-ua.html'><span>Контакти</span></a></li>
         </ul>
     </div>
     <div id="language">
-        <a href="find-ua.html" title="Українська"><img src="img/ua.png"></a>
+        <a href="find-en.html" title="English"><img src="img/en.png"></a>
     </div>
     <main>
-        <form id="form-container" class="form-container row clearfix">
+        <form id="form-geosearch" class="form-container form-search-theme row clearfix">
             <div class="greeting">
-                <h2 id="greeting">Enter the address of location</h2>
+                <h2 id="greeting">Введіть адресу локації</h2>
             </div>
             <div class="form-wrapper">
-                <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <label for="street">Street: </label>
-                    <div class="inp-text">
-                        <input type="text" class="question" id="street" value=""><label for="nme"><span class="focus-border"></span></label>
+                <div class="form-group">
+                    <div class="search-field">
+                        <label for="street">Вулиця: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="street" name="street" value=""><label><span class="focus-border"></span></label>
+                        </div>
+                    </div>
+                    <div class="search-field">
+                        <label for="city">Місто: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="city" name="city" value=""><label><span class="focus-border"></span></label>
+                        </div>
                     </div>
                 </div>
-                <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <label for="city">City: </label>
-                    <div class="inp-text">
-                        <input type="text" class="question" id="city" value=""><label for="nme"><span class="focus-border"></span></label>
+                <div class="form-group">
+                    <div class="search-field">
+                        <label for="nytimes-news">Бажаєте отримати новини New York Times за локацією?</label>
                     </div>
-                </div>
-                <div class="switch_box col-2 col-m-2 col-ms-1">
-                    <div class="form-line">
-                        <label for="street">Do you want to get articles?</label>
+                    <div class="search-field">
+                        <div class="input_wrapper">
+                            <input type="checkbox" id="nytimes-news" name="nytimes-news">
+                            <svg class="сhb is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+                                <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+                            </svg>
+                            <svg class="сhb is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+                                <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <div class="form-line input_wrapper">
-                        <input type="checkbox" id="switch">
-                        <svg class="is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
-                            <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
-                        </svg>
-                        <svg class="is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
-                            <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
-                        </svg>
+                    <div class="search-field hidden" data-options="nytimes-news">
+                        <label for="timefrom-nytimes-news" class="field-optional">Отримати статті, починаючи з дати: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="timefrom-nytimes-news" name="timefrom-nytimes-news" value="" placeholder="2019.01.01" maxlength="10"><label><span class="focus-border"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="wiki-news">Бажаєте отримати новини Wikipedia за локацією?</label>
+                    </div>
+                    <div class="search-field">
+                        <div class="input_wrapper">
+                            <input type="checkbox" id="wiki-news" name="wiki-news">
+                            <svg class="сhb is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+                                <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+                            </svg>
+                            <svg class="сhb is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+                                <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="search-field hidden" data-options="wiki-news">
+                        <label for="timefrom-wiki-news" class="field-optional">Отримати статті, починаючи з дати: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="timefrom-wiki-news" name="timefrom-wiki-news" value="" placeholder="2019.01.01" maxlength="10"><label><span class="focus-border"></span></label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="clearfix"></div>
-            
+
             <div class="col-1 col-m-1 col-ms-1 btn-subm">
-                <button id="submit-btn">Submit</button>
+                <button id="submit-btn">Підтвердити</button>
                 <div class="refs">
-                    <p><a href="javascript:void(0);" onclick="onPrompts()">Recomends and examples</a></p><!--Поради і приклади--><!--для пошуку-->
-                    <p><a target="_blank" href="report-en.html">Report a problem</a></p><!--Повідомити про проблему-->
+                    <p><a href="#" id="search-examples" data-attach="#prompts">Поради і приклади</a></p><!--Поради і приклади--><!--для пошуку-->
+                    <p><a target="_blank" href="report-en.html">Повідомити про проблему</a></p><!--Повідомити про проблему-->
                 </div>
             </div>
-            <div id="bti" class="btn-subm">
+
+            <!-- START Map --> 
+            <!-- <div id="floating-panel">
+                <input id="address" type="textbox" class="question" value="Sydney, NSW">
+                <input id="submit-ex" type="button" value="Geocode">
+            </div>
+            <div id="map-ex"></div> -->
+            <!-- END Map -->
+
+            <div id="bti" class="hidden">
                 <div id="map-canv"></div>
             </div>
-            <div style="text-align: center"><button id="show-view-btn" style="display:none">Show full image</button></div>
+            <div style="text-align: center"><button id="show-view-btn" style="display: none">Показати зображення повністю</button></div>
         </form>
         <div id="fullimg" style="display: none" alt="Location View">
             <div>
@@ -117,59 +157,63 @@
                 <a href="#" id="view-download" target="_blank" download><img src="img/dl.png" alt="Location View to download"></a>
             </div>
         </div>
-        <div id="alert-b"><p>For security reasons, it is allowed to download no more than 25 photos per day.</p></div>
-        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 280px">
-            <div id="close-p"><img draggable="none" src="img/close.png"></div>
-            <h3>Here are some examples that can help you to input address correctly.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
+        <div id="alert-b"><p>У цілях безпеки не дозволяється завантажувати більше 25 фото за день.</p></div>
+        <!--<div class="subm col-2 col-m-2 col-ms-1">
+        </div>-->
+        <div id="prompts" data-cos="false" class="p_anim row clearfix" style="display: none; height: 280px">
+            <div id="close-p"><img draggable="no" src="img/close.png"></div>
+            <h3>Нижче подані приклади можуть допомогти вам ввести адресу правильно.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
             <ol>
                 <li>
-                    <p>It is not necessary to input nor the country name nor the definition of administrative division (like "city", "village", "district") or "state" (if USA) to get the Google photo of a particular object according to the address entered.
-                    But this may be a necessary refinement if you can't get right result.</p>
-                    <p>Street: <span class="example">[Street name], [the number object]</span> City: <span class="example">[City name]</span></p><!--<p class="example"><i>Вулиця</i>[Назва вулиці], [номер об'єкту]; <i>Місто</i>[Назва міста]</p>-->
-                    <p>Street: <span class="example">[the number object], [Street name]</span> City: <span class="example">[City name]</span></p>
-                    <p>Street: <span class="example">73, Franklin Avenue</span> City: <span class="example">Brooklin</p>
+                    <p>Не обов'язково вводити назву країни чи позначати адміністративно-територіальну одиниицю у скороченому чи повному вигляді ("місто", "село", "округ") або "штат" (якщо США) щоб отримати фотографію Google місцевості відповідно до введених даних. 
+                    Але це може бути необхідним уточненням якщо Вам не вдалося отримати правильний результат.</p>
+                    <p>Вулиця: <span class="example">[Назва вулиці], [номер об'єкту]</span> Місто:<span class="example"> [Назва міста]</span></p><!--<p class="example"><i>Вулиця</i>[Назва вулиці], [номер об'єкту]; <i>Місто</i>[Назва міста]</p>-->
+                    <p>Вулиця: <span class="example">[номер об'єкту], [Назва вулці]</span> Місто:<span class="example"> [Назва міста]</span></p>
                     <p>Street: <span class="example">Галицька, 7</span> City: <span class="example">Червоноград</p><!--округ-->
+                    <p>Street: <span class="example">73, Franklin Avenue</span> City: <span class="example">Brooklin</p>
                 </li>
                 <li>
-                    <p>If you entered the address and the result seemes strange (the objects shown cannot belong to the area), verify that you entered the address correctly. Also result can be unexpectable and wrong if You fill only one field with address.</p>
+                    <p>Якщо Ви ввели адресу і фото здалося Вам дивне (показані об’єкти точно не можуть належати місцевості), перевірте чи Ви правильно ввели адресу.</p>
                 </li>
-                <li>
-                    <p>It is better to follow the rules of transliteration, if you input the address of object that belongs to a non-English speaking country.</p>
-                    <p>You can use transliteration online <a href="http://translit.cc/">there</a>.</p>
-                    <p>Sometimes it is possible to get a right result if the address will be entered in different languages in each field (if the languages are somewhere similar).</p>
-                    <p>Street: <span class="example">25 Konstantine Gamsakhurdia St </span> City: <span class="example">ბათუმი</p>    
+                <li>    
+                    <p>Якщо Вам потрібно знайти фото місцевості, яка належить до не англомовної країни, англйськими літерами, краще користуватися правилами транслітерації.</p>
+                    <p>Ви можете скористатися транслітерацією онлайн <a href="http://ua.translit.cc/">тут</a>.</p>
+                    <p>Назви вулиць чи міст, які належать не англомовним країнам, можна також вводити англійськими літерами, користуючись правилами транслітерації.</p>
+                    <p>Вулиця: <span class="example">25 Konstantine Gamsakhurdia St </span> Місто: <span class="example">ბათუმი</p>    
                 </li>
                 <li>
                     <p>Трапляються випадки, коли в полі "Вулиця" потрібно вводити номер об'єкту (будівлі) у формі діапазону [номер-номер], щоб отримати фотографію об'єкту.</p>
-                    <p>Street: <span class="example">Peter-Rosegger-Straße, 42-44 </span> City: <span class="example">Graz</p>
+                    <p>Вулиця: <span class="example">Peter-Rosegger-Straße, 42-44 </span> Місто: <span class="example">Graz</p>
                 </li>
                 <li>
-                    <p>If the object is fairly famous (this is a monument of architecture, a museum, a stadium, a park, or any place of interest), You can input the address as follows. Unfortunately, some famous places are still not visible.</p><!--досить відомий, (це пам'ятка архітектури, музей, стадіон, парк)-->
-                    <p>Street: <span class="example">Castel dell'Ovo</span> City: <span class="example">Napoli</p>
-                    <p>Street: <span class="example">Goblin Valley State Park</span> City: <span class="example">Utah</p>
-                    <p>Street: <span class="example">Пляж Ланжерон</span> City: <span class="example">Одеса</p>
+                    <p>Якщо об'єкт є досить відомим (монумент архітктури, музей, стадіон, парк тощо), Ви можете ввести адресу наступним способом. На жаль, частину відомих місць поки що неможливо побачити.</p>
+                    <p>Вулиця: <span class="example">Castel dell'Ovo</span> Місто: <span class="example">Napoli</p>
+                    <p>Вулиця: <span class="example">Goblin Valley State Park</span> Місто: <span class="example">Utah</p>
+                    <p>Вулиця: <span class="example">Пляж Ланжерон</span> Місто: <span class="example">Одеса</p>
                 </li>
                 <li>
-                    <p>Some places can not be found on the map: low-populated or unpolluted objects, objects related to cultural or natural heritage, little-known villages and settlements, etc.</p>
+                    <p>Деякі місця не можна знайти на карті: малозаселені чи незаселені об’єкти, об’єкти що відносяться до культурної чи природної спадщини, маловідомі села і селища тощо.</p>
                 </li>
             </ol>
         </div>
-        <div class="row clearfix articles" style="display: none"><!--style="display: none"-->
-            <div class="wikipedia-container col-2 col-m-1 col-ms-1">
-                <h3 id="wikipedia-header">Wikipedia articles</h3><!--Посилання з Вікіпедії-->
-                <ul id="wikipedia-links" class="main_txt">Type in an address above and get Wikipedia article about a location here.</ul><!--Type in an address above and find relevant Wikipedia articles here!-->
-            </div>
-            <div class="nytimes-container col-2 col-m-1 col-ms-1">
-                <h3 id="nytimes-header">New York Times <span>articles</span></h3><!--Статті New York Times-->
-                <ul id="nytimes-articles">What's going on in places you're interested in? Input the address in English to get NY Times articles.</ul><!--and the NY Times can tell you here-->
-            </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
+        <div class="row clearfix articles hidden" data-news="wiki-news">
+            <!-- <div class="wikipedia-container col-2 col-m-1 col-ms-1"></div> -->
+            <h3 id="wikipedia-header">Новини (Вікіпедія)</h3>
+            <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul>
+        </div>
+        <div class="row clearfix articles hidden" data-news="nytimes-news">
+            <h3 id="nytimes-header"><span>Новини</span> (New York Times)</h3>
+            <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
         </div>
     </main>
     <footer style="z-index: -2; font-size: 12px !important">
-        <p>2018 Copyright. All Rights Reserved.</p>
+        <p>2018 Копірайт. Усі права захищені.</p>
     </footer>
     <script src="js/libs/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/geo.js"></script>
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY&callback=initMap"></script>-->
+    <!-- <script src="js/script.js"></script> -->
 </body>
 </html>

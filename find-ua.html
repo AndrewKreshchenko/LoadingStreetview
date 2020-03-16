@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/menu.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/for_user.css">
+    <!-- <script type="text/javascript" async="" src="js/libs/ga.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY"></script>
+    
 </head>
 <body>
     <div class="logo">
@@ -38,8 +40,8 @@
             <circle cx="152" cy="37" style="fill:rgba(0, 76, 76, 0.2);stroke:#fff;stroke-width:3px;" r="29.9" transform="matrix(0.895341 0 0 0.895341 -4.70271 7.41817)"/>
         </svg>
     </div>
-    <div id='cssmenu'>
-        <div id="menu-btn">
+    <div id='cssmenu' data-hide="click-outside">
+        <div id="menu-btn" data-attach="#cssmenu">
             <div></div><div></div><div></div>
         </div>
         <ul>
@@ -63,51 +65,91 @@
         <a href="find-en.html" title="English"><img src="img/en.png"></a>
     </div>
     <main>
-        <form id="form-container" class="form-container row clearfix">
+        <form id="form-geosearch" class="form-container form-search-theme row clearfix">
             <div class="greeting">
                 <h2 id="greeting">Введіть адресу локації</h2>
             </div>
             <div class="form-wrapper">
-                <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <label for="street">Вулиця: </label>
-                    <div class="inp-text">
-                        <input type="text" class="question" id="street" value=""><label for="nme"><span class="focus-border"></span></label>
+                <div class="form-group">
+                    <div class="search-field">
+                        <label for="street">Вулиця: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="street" name="street" value=""><label><span class="focus-border"></span></label>
+                        </div>
+                    </div>
+                    <div class="search-field">
+                        <label for="city">Місто: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="city" name="city" value=""><label><span class="focus-border"></span></label>
+                        </div>
                     </div>
                 </div>
-                <div class="container-inp col-2 col-m-2 col-ms-1">
-                    <label for="city">Місто: </label>
-                    <div class="inp-text">
-                        <input type="text" class="question" id="city" value=""><label for="nme"><span class="focus-border"></span></label>
+                <div class="form-group">
+                    <div class="search-field">
+                        <label for="nytimes-news">Бажаєте отримати новини New York Times за локацією?</label>
                     </div>
-                </div>
-                <div class="col-2 col-m-2 col-ms-1">
-                    <label for="street">Бажаєте отримати статті?</label>
-                </div>
-                <div class="switch_box col-2 col-m-2 col-ms-1">
-                    <div class="input_wrapper">
-                        <input type="checkbox" id="switch">
-                        <svg class="сhb is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
-                            <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
-                        </svg>
-                        <svg class="сhb is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
-                            <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
-                        </svg>
+                    <div class="search-field">
+                        <div class="input_wrapper">
+                            <input type="checkbox" id="nytimes-news" name="nytimes-news">
+                            <svg class="сhb is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+                                <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+                            </svg>
+                            <svg class="сhb is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+                                <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="search-field hidden" data-options="nytimes-news">
+                        <label for="timefrom-nytimes-news" class="field-optional">Отримати статті, починаючи з дати: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="timefrom-nytimes-news" name="timefrom-nytimes-news" value="" placeholder="2019.01.01" maxlength="10"><label><span class="focus-border"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="wiki-news">Бажаєте отримати новини Wikipedia за локацією?</label>
+                    </div>
+                    <div class="search-field">
+                        <div class="input_wrapper">
+                            <input type="checkbox" id="wiki-news" name="wiki-news">
+                            <svg class="сhb is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+                                <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+                            </svg>
+                            <svg class="сhb is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+                                <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="search-field hidden" data-options="wiki-news">
+                        <label for="timefrom-wiki-news" class="field-optional">Отримати статті, починаючи з дати: </label>
+                        <div class="inp-text">
+                            <input type="text" class="question" id="timefrom-wiki-news" name="timefrom-wiki-news" value="" placeholder="2019.01.01" maxlength="10"><label><span class="focus-border"></span></label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="clearfix"></div>
-            
+
             <div class="col-1 col-m-1 col-ms-1 btn-subm">
                 <button id="submit-btn">Підтвердити</button>
                 <div class="refs">
-                    <p><a href="javascript:void(0);" onclick="onPrompts()">Поради і приклади</a></p><!--Поради і приклади--><!--для пошуку-->
+                    <p><a href="#" id="search-examples" data-attach="#prompts">Поради і приклади</a></p><!--Поради і приклади--><!--для пошуку-->
                     <p><a target="_blank" href="report-en.html">Повідомити про проблему</a></p><!--Повідомити про проблему-->
                 </div>
             </div>
-            <div id="bti">
+
+            <!-- START Map --> 
+            <!-- <div id="floating-panel">
+                <input id="address" type="textbox" class="question" value="Sydney, NSW">
+                <input id="submit-ex" type="button" value="Geocode">
+            </div>
+            <div id="map-ex"></div> -->
+            <!-- END Map -->
+
+            <div id="bti" class="hidden">
                 <div id="map-canv"></div>
             </div>
-            <div style="text-align: center"><button id="show-view-btn" style="display:none">Показати зображення повністю</button></div>
+            <div style="text-align: center"><button id="show-view-btn" style="display: none">Показати зображення повністю</button></div>
         </form>
         <div id="fullimg" style="display: none" alt="Location View">
             <div>
@@ -116,7 +158,9 @@
             </div>
         </div>
         <div id="alert-b"><p>У цілях безпеки не дозволяється завантажувати більше 25 фото за день.</p></div>
-        <div id="prompts" class="p_anim row clearfix" style="display: none; height: 280px">
+        <!--<div class="subm col-2 col-m-2 col-ms-1">
+        </div>-->
+        <div id="prompts" data-cos="false" class="p_anim row clearfix" style="display: none; height: 280px">
             <div id="close-p"><img draggable="no" src="img/close.png"></div>
             <h3>Нижче подані приклади можуть допомогти вам ввести адресу правильно.</h3><!--Ви можете почитати рекоментації, які допоможуть Вам правильно ввести адресу-->
             <ol>
@@ -152,21 +196,24 @@
                 </li>
             </ol>
         </div>
-        <div class="row clearfix articles" style="display: none">
-            <div class="wikipedia-container col-2 col-m-1 col-ms-1">
-                <h3 id="wikipedia-header">Посилання на Вікіпедію</h3><!--Посилання з Вікіпедії-->
-                <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul><!--Введіть адресу в полях, щоб отримати відповідні посилання на джерела Вікіпедії.-->
-            </div>
-            <div class="nytimes-container col-2 col-m-1 col-ms-1">
-                <h3 id="nytimes-header"><span>Статті</span> (New York Times)</h3><!--Статті New York Times-->
-                <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
-            </div><!--Які новини Вашого міста? Введіть адресу та підтвердіть її, і NY Times розповість вам тут...-->
+        <div class="row clearfix articles hidden" data-news="wiki-news">
+            <!-- <div class="wikipedia-container col-2 col-m-1 col-ms-1"></div> -->
+            <h3 id="wikipedia-header">Новини (Вікіпедія)</h3>
+            <ul id="wikipedia-links" class="main_txt">Введіть адресу в полях, щоб отримати посилання з Вікіпедії про локацію.</ul>
+        </div>
+        <div class="row clearfix articles hidden" data-news="nytimes-news">
+            <h3 id="nytimes-header"><span>Новини</span> (New York Times)</h3>
+            <ul id="nytimes-articles">Що відбувається у місцях, які вас цікавлять? Щоб отримати статті, вводьте адресу англійською мовою.</ul>
         </div>
     </main>
     <footer style="z-index: -2; font-size: 12px !important">
         <p>2018 Копірайт. Усі права захищені.</p>
     </footer>
     <script src="js/libs/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/geo.js"></script>
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ5EgZDmkVdNMCkIaYNdEtWGLWPySBQY&callback=initMap"></script>-->
+    <!-- <script src="js/script.js"></script> -->
 </body>
 </html>
