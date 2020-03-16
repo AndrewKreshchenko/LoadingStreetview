@@ -25,27 +25,6 @@ class Geosearch {
     this._street = street;
 
     this.elem = elem;
-    //this.geocoder = new google.maps.Geocoder();
-
-    // Geo Services agregator
-    // 
-    // this._geoServices = {
-    //   googlemap: {
-    //     map: new google.maps.Map(
-    //       this.elem, {
-    //         center: new google.maps.LatLng(45.522894,-122.989827),
-    //         //zoom: 8,
-    //         mapTypeId: google.maps.MapTypeId.ROADMAP
-    //       }
-    //     ),
-    //     status: false
-    //   }
-    // }
-
-    //this.status = [{google_maps: false}, {wikipedia: false}, {nytimes: false}]; 
-
-    
-    //this.lang = document.getElementsByTagName('html')[0].lang;
   }
 
   get city() {
@@ -118,7 +97,6 @@ class GoogleMapSearch extends Geosearch {
     this._cords = newCords
   }
 
-  // initialize = (city, street, elem) => getInfos().then((data) => {
   loadMap() {
     var geocoder = new google.maps.Geocoder(),
       bounds = new google.maps.LatLngBounds(),
@@ -155,20 +133,12 @@ class GoogleMapSearch extends Geosearch {
         map.setZoom(15);
         el.parentElement.classList.remove('hidden');
   
-        //this.status = true;
-  
       })
     }
     
     findCords(`${this.city}, ${this.street}`, geocoder, this.map);
   }
-  
-  //loadMapView(document.getElementById('map-canv'), geosearch.city, geosearch.street)
-    
-    // geosearch.loadLocationView('bgimg', [
-    //   {id: 'bti', style: 'block'},
-    //   {id: 'show-view-btn', style: 'inline'}
-    // ]);
+
   loadLocationView(newId, related_elems) {
     // Load image
     let img = document.createElement('img');
@@ -222,7 +192,6 @@ class NYTimesSearch extends Geosearch {
       url = collectURLOpts(url, opts);
       
       url += '&api-key=N3Sy2240HEKAjb5wujwE6cvBU8Ea23LT';
-      //if (from_date == 'undefined' && from_date.length !== 8) from_date = '20190101'
       return url;
     }
 
@@ -234,9 +203,6 @@ class NYTimesSearch extends Geosearch {
     xhr.open('GET', url);
     xhr.onload = () => {
       if (xhr.status != 200) { // xhr.readyState != 4 ||
-        // this.lang == 'en' ?
-        //     this.form.querySelector('#nytimes-articles').innerText = 'There are no articles yet for this location yet.':
-        //     this.form.querySelector('#nytimes-articles').innerText = 'Поки що немає статей для даної місцевості.'
         return
       }
       // Convert data string to an object
@@ -267,7 +233,6 @@ class WikipediaSearch extends Geosearch {
   }
 
   loadWikipediaArticles(city) {
-    //var nameL = $('#switch').val();
     if ((city == '') || (city.match(/^\d+$/))) {
       alert('Please, check your input.')
       return
@@ -299,22 +264,9 @@ class WikipediaSearch extends Geosearch {
         if (lanPage == 'uk')
           document.getElementById('nytimes-articles').innerText = 'Наразі не вдалося знайти статті Вікіпедії. Спробуйте ввести адресу інакше.';
       }
-      // xmlHttp.open("get", "server.php");
-      // xmlHttp.send(formData);
     }
   }
 }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     if (document.getElementById('form-container') == null) return;
-
-//     const geosearch = new Geosearch();
-
-//     const trackProperties = document.getElementById('success-plan-tracking-data-empty-index').dataset;
-
-//     new EmptyIndexTracking(trackProperties).bindEvents();
-//     new TrackNewPlanAdd(trackProperties).bindEvents();
-// })
 
 
 // ---^---^---^---^---
@@ -360,21 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
       checkb_data.push(elem.getAttribute('name'));
     })
 
-    // Get conditions
+    // Get info about checked includings
     const city = form.findFormValue(formData, 'city'),
       street = form.findFormValue(formData, 'street'),
       includings = form.includeItems(formData, checkb_data, 0);
-    
-    console.log('DOM - formData, conditions: ', formData, conditions);
 
     // Clear out old data before new request
     //container.querySelector('#wikipedia-links').innerText = '';
-    
-    // const geosearch = new Geosearch(
-    //   form.findFormValue(formData, 'city'),
-    //   form.findFormValue(formData, 'street'),
-    //   document.getElementById('map-canv')
-    // );
     
     // If form was filled successfuly, seach for results
     if (new Geosearch(city, street, document.getElementById('map-canv')).showInfo()) {
@@ -403,13 +347,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 })
-
-//Delete product
-// document.getElementById("product-list").addEventListener("click", e => {
-//   const ui = new UI();
-//   ui.deleteProduct(e.target);
-//   if(ui.deleteProduct(e.target)) {
-//     ui.showMessage("Product removed successfully", "danger");
-//   }
-//   e.preventDefault();
-// });
