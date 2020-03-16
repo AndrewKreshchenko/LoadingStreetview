@@ -116,10 +116,11 @@ h1.amp.amp-anim {
     height: 0;
 }
 #cssmenu {
-    margin-left: 205px;
+    margin: 0 150px;
     padding-top: 35px;
     position: fixed;/*width: auto;*/
     font-family: 'Open Sans', sans-serif;
+    z-index: 3;
     /*background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
     background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
