@@ -157,10 +157,10 @@ a:after {
 .search-field {
     padding: 5px 20px;
 }
-.field-optional {
+.field-optional1 {
     padding-left: 25px
 }
-.field-optional::before {
+.field-optional1::before {
     position: absolute;
     margin-left: -20px;
     content: 'op';
