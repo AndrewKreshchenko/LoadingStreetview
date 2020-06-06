@@ -2,7 +2,7 @@
 _from spring 2018_
 
 The website is **under development**.
-Fir appeared in . Also plan to improve my design.
+Plan to improve my design.
 [See it here](https://andrewkreshchenko.github.io/LoadingStreetview/)
 
 Used APIs:
