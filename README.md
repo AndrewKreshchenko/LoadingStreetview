@@ -1,8 +1,10 @@
 # Plan & Find
 _from spring 2018_
 
-The website is **under development**.
-Plan to improve my design.
+Technologiees
+_NodeJS, Express, Pug, i18n internatiolization_
+
+Web application is **under development**. Actual version is not available yet.
 [See it here](https://andrewkreshchenko.github.io/LoadingStreetview/)
 
 Used APIs:
