@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0 minimum-scale=1.0')
+    title Plan &amp; Find | Fast geosearch online
+    link(rel='icon' type='image/png' href='../img/fic.png' sizes='32x32')
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu+Condensed" rel="stylesheet")
+    link(rel="stylesheet" href="../css/uikit.min.css")
+    link(rel="stylesheet" href="../css/styles.css")
+    //- link(rel="stylesheet" href="../css/menu.css")
+    //- link(rel="stylesheet" media="all" href="../css/responsive.css")
+
+  body
+    //- extends layout
+    include _layout/header
+
+    block cont
+      h1= title
+      p Welcome to #{title}
+      p Welcome #{t("home.title")}
+    
+    #info
+    //- p Total:
+    //- blockquote= t('home.total', { counter: counter })
+  
+  block scripts
+    script(src="../js/uikit.min.js")
+    script(src="../js/main.js")
