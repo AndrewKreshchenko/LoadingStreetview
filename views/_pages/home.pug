@@ -1,0 +1,16 @@
+extends ../index.pug
+
+block cont
+    .main_txt
+        p Plan &amp; Find
+        
+        form(method="post" action="/")
+            //- button(name="uk" class="language-item" onclick="function() { window.location = '/?lng=uk'; }") #{t("lang.uk")}
+            //- button(name="en" class="language-item active" onclick="function() { window.location = '/?lng=en'; }") #{t("lang.en")}
+
+            a(href="#" name="uk" onclick="changeLanguage('uk');") manually set Ukrainian lang
+            br
+            a(href="#" name="uk" onclick="changeLanguage('en');") manually set English lang
+            br
+            a(href="?lng=uk") manually set English language
+            input(type="hidden" name="code" value="")
